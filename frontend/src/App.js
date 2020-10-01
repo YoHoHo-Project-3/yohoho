@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Signup from './components/Signup';
 import Login from './components/Login';
-import About from "./pages/About";
+
 
 class App extends Component {
 
