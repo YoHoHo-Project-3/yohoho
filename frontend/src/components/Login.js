@@ -6,6 +6,7 @@ export default class Login extends Component {
 
     state = {
         username: '',
+        email:'',
         password: '',
         message: ''
     }
@@ -19,13 +20,14 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { username, password } = this.state;
-        login(username, password)
+        const { username, email, password } = this.state;
+        login(username, email, password)
             .then(data => {
                 if (data.message) {
                     this.setState({
                         message: data.message,
                         username: '',
+                        email: '',
                         password: ''
                     })
                 } else {
@@ -51,6 +53,16 @@ export default class Login extends Component {
                             value={this.state.username}
                             onChange={this.handleChange}
                             id='username'
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="email">Email: </Form.Label>
+                        <Form.Control
+                            type='email'
+                            name='email'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            id='input-email'
                         />
                     </Form.Group>
                     <Form.Group>

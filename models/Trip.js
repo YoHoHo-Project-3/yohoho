@@ -37,14 +37,12 @@ const memeSchema = new Schema({
         sails: {
           spots: Number,
           available: Boolean,
-          cabin: Number,
         },
       },
       {
         yacht: {
           spots: Number,
-          available: true,
-          cabin: Number,
+          available: Boolean,
         },
       },
     ],
