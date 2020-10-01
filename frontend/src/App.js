@@ -6,6 +6,8 @@ import Home from "./pages/Home";
  
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Profile from "./components/Profile";
+
 import Navbar from './components/Navbar'
 
 class App extends Component {
@@ -37,6 +39,11 @@ class App extends Component {
           exact
           path='/login'
           render={props => <Login setUser={this.setUser} {...props} />}
+        />
+        <Route
+          exact
+          path='/profile'
+          render={props => <Profile user={this.state.user} />}
         />
       </BrowserRouter>
     );
