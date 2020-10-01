@@ -5,7 +5,6 @@ import { Form, Button, Alert } from 'react-bootstrap';
 export default class Login extends Component {
 
     state = {
-        username: '',
         email:'',
         password: '',
         message: ''
@@ -20,15 +19,12 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { username, email, password } = this.state;
-        login(username, email, password)
+        const { email, password } = this.state;
+        login(email, password)
             .then(data => {
                 if (data.message) {
                     this.setState({
-                        message: data.message,
-                        username: '',
-                        email: '',
-                        password: ''
+                        message: data.message
                     })
                 } else {
                     // now we need to put the user in the user key of the state of App.js
@@ -45,16 +41,6 @@ export default class Login extends Component {
             <>
                 <h2>Login</h2>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group>
-                        <Form.Label htmlFor="username">Username: </Form.Label>
-                        <Form.Control
-                            type='text'
-                            name='username'
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                            id='username'
-                        />
-                    </Form.Group>
                     <Form.Group>
                         <Form.Label htmlFor="email">Email: </Form.Label>
                         <Form.Control

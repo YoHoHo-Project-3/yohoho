@@ -26,8 +26,6 @@ export default class Signup extends Component {
                 if (data.message) {
                     this.setState({
                         message: data.message,
-                        username: '',
-                        email: '',
                         password: ''
                     })
                 } else {
