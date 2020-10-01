@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const memeSchema = new Schema({
+const tripSchema = new Schema({
   title: String,
   description: String,
   user: {
@@ -52,5 +52,5 @@ const memeSchema = new Schema({
   imgPath: String,
   imgPublicId: String,
 });
-const Meme = mongoose.model("Meme", memeSchema);
-module.exports = Meme;
+const Trip = mongoose.model("Trip", tripSchema);
+module.exports = Trip;
