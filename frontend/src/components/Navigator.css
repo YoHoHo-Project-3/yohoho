@@ -1,0 +1,13 @@
+.background{
+    background-image: url('../images/sailboat-2423484_1920.jpg');
+    height: 700px;
+    background-size: cover;
+
+
+}
+.background a{
+    display: flex;
+ justify-content:  center;
+    color: black;
+    font-size: 24pt;
+}

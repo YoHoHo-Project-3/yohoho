@@ -3,11 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Home from "./pages/Home";
-import About from "./pages/About";
+ 
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from "./components/Profile";
 
+import Navbar from './components/Navbar'
 
 class App extends Component {
 
@@ -24,9 +25,10 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <Navbar/> 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+         
         </Switch>
         <Route
           exact
