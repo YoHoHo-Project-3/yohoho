@@ -32,6 +32,7 @@ const userSchema = new Schema({
   telephone: Number,
   picture: String,
   experience: String,
+  isOwner: Boolean
 
 
 });
