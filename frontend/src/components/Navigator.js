@@ -5,10 +5,10 @@ import './Navigator.css';
 export default class Navigator extends Component {
   render() {
     return (
-      <div className='background'>
-        <Link to="/">Whant to book a Trip?</Link>
+      <div className='background'>       
+        <Link to="/book-trip">Whant to book a Trip?</Link>
 
-        <Link to="/">Do You offer a Trip</Link>
+        <Link to="/offer-trip">Do You offer a Trip</Link>
        
       </div>
     );

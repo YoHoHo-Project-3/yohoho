@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Home from "./pages/Home";
- 
+import Home from "./pages/Home"; 
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from "./components/Profile";
-
+import BookTrip from './pages/BookTrip'
+import OfferTrip from './pages/OfferTrip'
 import Navbar from './components/Navbar'
 
 class App extends Component {
@@ -45,6 +45,16 @@ class App extends Component {
           exact
           path='/profile'
           render={props => <Profile user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/book-trip'
+          render={props => <BookTrip user={this.state.user} />}
+        />
+         <Route
+          exact
+          path='/offer-trip'
+          render={props => <OfferTrip user={this.state.user} />}
         />
       </BrowserRouter>
     );
