@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const tripSchema = new Schema({
     trip_id: {
     type: String,
-    required: true,
+    required: false,
+    ref: "User",
   },
   title: {
     type: String,
@@ -16,15 +17,15 @@ const tripSchema = new Schema({
     type: String,
     required: [true, "Description is required."],
   },
-  user_id: {
+  user: {
     required: true,
     type: Schema.Types.ObjectId,
   },
-  location_start: {
+  locationStart: {
     required: [true, "The start location is required."],
     type: String,
   },
-  location_end: {
+  locationEnd: {
     required: [true, "The end location is required."],
     type: String,
   },
@@ -32,24 +33,24 @@ const tripSchema = new Schema({
     required: [true, "Please enter a date."],
     type: Date,
   },
-  boat_name: {
+  boatName: {
     required: [true, "Please select a boat type."],
     type: String,
   },
   price: {
     required: [true, "Please insert a price."],
-    type: Number,
+    type: String,
   },
-  slots_available: {
+  slotsAvailable: {
     required: [true, "Please insert the total available slots."],
-    type: Number,
+    type: String,
   },
   slots_booked: {
-    required: true,
-    type: Number,
+    required: false,
+    type: String,
   },
-  img_url: {
-    required: [true, "Please upload an image."],
+  image: {
+    required: [false, "Please upload an image."],
     type: String,
   }
 });
