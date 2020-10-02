@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
-  trip_id: {
+    trip_id: {
     type: String,
     required: true,
   },
