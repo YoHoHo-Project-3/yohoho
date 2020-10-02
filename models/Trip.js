@@ -31,7 +31,7 @@ const tripSchema = new Schema({
   },
   date: {
     required: [true, "Please enter a date."],
-    type: Date,
+    type: String,
   },
   boatName: {
     required: [true, "Please select a boat type."],

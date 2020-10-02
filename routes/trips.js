@@ -5,41 +5,35 @@ const { v4: uuidv4 } = require("uuid");
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  Trip.find()
-    .then(trip => {
-      res.status(200).json(trip);
-    })
-    .catch(err => {
-      res.json(err);
-    })
+router.get("/", (req, res, next) => {
+  Trip.find().then((data) => {
+    res.json(data);
+  });
 });
 
-
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   Trip.findById(req.params.id)
-    .then(trip => {
+    .then((trip) => {
       if (!trip) {
         res.status(404).json(trip);
       } else {
         res.status(200).json(trip);
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
-    })
+    });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   Trip.findByIdAndDelete(req.params.id)
-    .then(trip => {
-      res.status(200).json({ message: 'Trip deleted' });
+    .then((trip) => {
+      res.status(200).json({ message: "Trip deleted" });
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
-    })
-})
-
+    });
+});
 
 router.post("/", (req, res, next) => {
   const trip = req.body;
@@ -55,16 +49,5 @@ router.post("/", (req, res, next) => {
       console.log("error======>", err);
     });
 });
-
-
-router.get("/", (req, res, next) => {
-  Trip.find().then((data) => {
-      res.json(data)
-  });
-});
-
-
-
-
 
 module.exports = router;

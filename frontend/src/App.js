@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import BookTrip from './pages/BookTrip'
 import OfferTrip from './pages/OfferTrip'
 import Navbar from './components/Navbar'
+ 
 
 class App extends Component {
 
@@ -56,6 +57,7 @@ class App extends Component {
           path='/offer-trip'
           render={props => <OfferTrip user={this.state.user} />}
         />
+         
       </BrowserRouter>
     );
   }
