@@ -14,7 +14,7 @@ const endpoints = require("./routes");
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const Trip = require('./models/Trip');
-const { v4: uuidv4 } = require('uuid');
+
 
 require('./configs/passport.js');
 
