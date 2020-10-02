@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { login } from '../services/auth';
 import { Form, Button, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 export default class Login extends Component {
@@ -66,6 +67,8 @@ export default class Login extends Component {
                         <Alert variant='danger'>{this.state.message}</Alert>
                     )}
                     <Button type='submit'>Login</Button>
+                    
+                    <Link to='/signup'>If you dont have account click here </Link>
                 </Form>
             </>
         )

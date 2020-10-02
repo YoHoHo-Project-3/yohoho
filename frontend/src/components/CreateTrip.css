@@ -1,0 +1,11 @@
+.create{
+    background-image: url('../images/boat.jpeg');
+    height: 800px;
+    background-size: cover;
+    color: black;
+ }
+ .formCreate label{
+     
+     font-size: 16pt;
+      
+ }
