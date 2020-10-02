@@ -24,6 +24,18 @@ const userSchema = new Schema({
     enum: ["user", "admin"],
     default: 'user',
   },
+  trips: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Trip",
+    },
+  ],
+  createdTrips: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Trip",
+    },
+  ],
   name: String,
   lastName: String,
   birthdate: Date,
@@ -32,9 +44,8 @@ const userSchema = new Schema({
   telephone: Number,
   picture: String,
   experience: String,
-  isOwner: Boolean
 
-
+  
 });
 const User = mongoose.model("User", userSchema);
 module.exports = User;
