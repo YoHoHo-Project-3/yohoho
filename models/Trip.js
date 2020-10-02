@@ -4,53 +4,54 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
-  title: String,
-  description: String,
-  user: {
-    required: [true, "User is required."],
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    trip_id: {
+    type: String,
+    required: true,
   },
-  ratings: [
-    {
-      user: String,
-      rating: String,
-    },
-  ],
-
-  location: {
-    start: String,
-    end: String,
+  title: {
+    type: String,
+    required: [true, "Title is required."],
+  },
+  description: {
+    type: String,
+    required: [true, "Description is required."],
+  },
+  user_id: {
+    required: true,
+    type: Schema.Types.ObjectId,
+  },
+  location_start: {
+    required: [true, "The start location is required."],
+    type: String,
+  },
+  location_end: {
+    required: [true, "The end location is required."],
+    type: String,
   },
   date: {
-    start: Date,
+    required: [true, "Please enter a date."],
+    type: Date,
   },
-  boat: {
-    type: [
-      {
-        motor: {
-          spots: Number,
-          available: Boolean,         
-        },
-      },
-      {
-        sails: {
-          spots: Number,
-          available: Boolean,
-        },
-      },
-      {
-        yacht: {
-          spots: Number,
-          available: Boolean,
-        },
-      },
-    ],
+  boat_name: {
+    required: [true, "Please select a boat type."],
+    type: String,
   },
-
-  imgName: String,
-  imgPath: String,
-  imgPublicId: String,
+  price: {
+    required: [true, "Please insert a price."],
+    type: Number,
+  },
+  slots_available: {
+    required: [true, "Please insert the total available slots."],
+    type: Number,
+  },
+  slots_booked: {
+    required: true,
+    type: Number,
+  },
+  img_url: {
+    required: [true, "Please upload an image."],
+    type: String,
+  }
 });
 const Trip = mongoose.model("Trip", tripSchema);
 module.exports = Trip;
