@@ -87,8 +87,8 @@ app.use('/', index);
 const trips = require('./routes/trips');
 app.use('/api/trips', trips);
 
-const profile = require('./routes/profile/');
-app.use('/api/profile', profile);
+// const profile = require('./routes/profile/');
+// app.use('/api/profile', profile);
 
 const auth = require('./routes/auth');
 app.use('/api/auth', auth);
