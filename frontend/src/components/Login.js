@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { login } from '../services/auth';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+
 export default class Login extends Component {
 
     state = {
-        email:'',
+        email: '',
         password: '',
         message: ''
     }

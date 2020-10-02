@@ -14,12 +14,13 @@ const endpoints = require("./routes");
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const Trip = require('./models/Trip');
+const { v4: uuidv4 } = require('uuid');
 
 require('./configs/passport.js');
 
 
 mongoose
-  .connect('mongodb://localhost/yohoho', { useNewUrlParser: true })
+  .connect('mongodb://localhost/yohoho', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -82,6 +83,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const trips = require('./routes/trips');
+app.use('/api/trips', trips);
 
 const auth = require('./routes/auth');
 app.use('/api/auth', auth);
