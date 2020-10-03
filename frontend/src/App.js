@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,12 +26,12 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-      <Navbar/> 
+    <>
+        <Navbar/> 
         <Switch>
           <Route exact path="/" component={Home} />
          
-        </Switch>
+        
         <Route
           exact
           path='/signup'
@@ -44,8 +44,8 @@ class App extends Component {
         />
         <Route
           exact
-          path='/profile'
-          render={props => <Profile user={this.state.user} />}
+          path='/profile/:id'
+          render={props => <Profile user={this.state.user} {...props}/>}
         />
         <Route
           exact
@@ -57,8 +57,10 @@ class App extends Component {
           path='/offer-trip'
           render={props => <OfferTrip user={this.state.user} />}
         />
+        </Switch>
+    </>
          
-      </BrowserRouter>
+      
     );
   }
 }
