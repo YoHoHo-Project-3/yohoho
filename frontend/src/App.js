@@ -25,12 +25,12 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+    <>
       <Navbar/> 
         <Switch>
           <Route exact path="/" component={Home} />
          
-        </Switch>
+        
         <Route
           exact
           path='/signup'
@@ -43,8 +43,8 @@ class App extends Component {
         />
         <Route
           exact
-          path='/profile'
-          render={props => <Profile user={this.state.user} />}
+          path='/profile/:id'
+          render={props => <Profile user={this.state.user} {...props}/>}
         />
         <Route
           exact
@@ -56,7 +56,8 @@ class App extends Component {
           path='/offer-trip'
           render={props => <OfferTrip user={this.state.user} />}
         />
-      </BrowserRouter>
+        </Switch>
+        </>
     );
   }
 }
