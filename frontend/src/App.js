@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import BookTrip from './pages/BookTrip'
 import OfferTrip from './pages/OfferTrip'
 import Navbar from './components/Navbar'
+ 
 
 class App extends Component {
 
@@ -26,7 +27,7 @@ class App extends Component {
   render() {
     return (
     <>
-      <Navbar/> 
+        <Navbar/> 
         <Switch>
           <Route exact path="/" component={Home} />
          
@@ -57,7 +58,9 @@ class App extends Component {
           render={props => <OfferTrip user={this.state.user} />}
         />
         </Switch>
-        </>
+    </>
+         
+      
     );
   }
 }

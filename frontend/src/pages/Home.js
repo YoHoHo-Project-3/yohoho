@@ -15,8 +15,8 @@ export default class Home extends Component {
         <h1>How does it work?</h1>
         <div className="d-flex  justify-content-around" >        
 
-          {this.state.cardData.map((e) => {
-            return <CardInfo data={e} />;
+          {this.state.cardData.map((e,i) => {
+            return <CardInfo key={i} data={e} />;
           })}
         </div>
       </div>

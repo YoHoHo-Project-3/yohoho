@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import "./CreateTrip.css";
+import axios from "axios";
+import { withRouter } from "react-router";
 
-export default class BookForm extends Component {
+
+ class BookForm extends Component {
   state = {
+    user: this.props.userId,
     title: "",
     description: "",
     locationStart: "",
@@ -19,17 +23,30 @@ export default class BookForm extends Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-     [name]: value,
+      [name]: value,
     });
   };
 
-  handleSubmit = (event) => {};
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("clicked");
+    axios
+      .post("/api/trips", this.state)
+      .then((response) => {
+          this.props.history.push("/profile")
+        console.log(response);
+
+      })
+      .catch((err) => {
+        console.log("posting failed", err);
+      });
+  };
   render() {
-      console.log(this.state)
+    console.log(this.props);
     return (
       <div className="create">
         <div className="formCreate">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div>
               <label htmlFor="title">Title: </label>
               <input
@@ -55,9 +72,9 @@ export default class BookForm extends Component {
               <label htmlFor="locationStrart">From: </label>
               <input
                 type="text"
-                name="locationStrart"
-                id="locationStrart"
-                value={this.state.locationStrart}
+                name="locationStart"
+                id="locationStart"
+                value={this.state.locationStart}
                 onChange={this.handleChange}
               />{" "}
             </div>
@@ -115,16 +132,19 @@ export default class BookForm extends Component {
             <div>
               <label htmlFor="image">Photo: </label>
               <input
-                type="file"
+                type="text"
                 name="image"
                 id="image"
                 value={this.state.image}
                 onChange={this.handleChange}
-              />{" "}
+              />
             </div>
+            <button onClick={this.handleSubmit}> Submit</button>
           </form>
         </div>
       </div>
     );
   }
 }
+
+export default withRouter(BookForm)
