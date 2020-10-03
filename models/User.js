@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  username: {
+  name: {
     type: String,
     required: true
   },
@@ -37,7 +37,6 @@ const userSchema = new Schema({
       ref: "Trip",
     },
   ],
-  name: String,
   lastName: String,
   birthdate: Date,
   gender: String,
