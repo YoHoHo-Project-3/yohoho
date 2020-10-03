@@ -50,7 +50,7 @@ class App extends Component {
         />
         <Route
           exact
-          path='/dashboard/:id'
+          path='/dashboard/'
           render={props => <Dashboard user={this.state.user} {...props}/>}
         />
         <Route
