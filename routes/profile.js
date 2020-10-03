@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const profile = req.body;
-        const user = await User.findByIdAndUpdate(req.session.user._id, profile);
+        const user = await User.findByIdAndUpdate(req.session.passport.user, profile);
         res.status(200).json(user);
     } catch (err) {
         res.json(err)

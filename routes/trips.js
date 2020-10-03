@@ -5,10 +5,9 @@ const User = require('../models/User');
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  const trip = req.body;
   try {
-    await Trip.find(trip);
-    res.json(trip);
+    const trips = await Trip.find();
+    res.json(trips);
   } catch (err) {
     res.json(err);
   }

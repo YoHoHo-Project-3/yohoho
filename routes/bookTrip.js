@@ -46,11 +46,10 @@ router.post("/", async (req, res, next) => {
         trip.slots_booked = 0
         await Trip.create(trip);
         res.status(201).json(trip);
-    })
     } catch (err) {
-    res.status(400).json(err);
-    console.log("error======>", err);
-};
+        res.status(400).json(err);
+        console.log("error======>", err);
+    };
 });
 
 module.exports = router;
