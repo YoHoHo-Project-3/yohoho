@@ -1,4 +1,8 @@
 const express = require("express");
+
+const profile = require("../models/profile");
+
+
 const User = require('../models/User');
 const router = express.Router();
 
@@ -32,6 +36,10 @@ router.put('/:id', (req, res) => {
     User.findByIdAndUpdate(
         req.params.id,
         profile,
+
+    ).then(profile => {
+        res.status(200).json(profile);
+
     ).then(profile => { 
         User.findById(profile.id)
         .then(changedProfile => {
@@ -46,4 +54,6 @@ router.put('/:id', (req, res) => {
         })
 });
 
+
 module.exports = router;
+

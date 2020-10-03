@@ -8,7 +8,10 @@ const router = express.Router();
 router.get("/", (req, res, next) => {
   Trip.find().then((data) => {
     res.json(data);
-  });
+  })
+    .catch((err) => {
+      res.json(err);
+    })
 });
 
 router.get("/:id", (req, res) => {
