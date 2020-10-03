@@ -3,6 +3,7 @@ import CardInfo from "./../components/CardInfo";
 import { cardData } from "../helpers/cardData";
 import CreateTrip from "../components/CreateTrip";
 import { withRouter } from "react-router";
+
 class OfferTrip extends Component {
   state = {
     cardData: cardData,
