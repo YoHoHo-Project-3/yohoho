@@ -11,32 +11,30 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-
 router.get('/:id', async (req, res) => {
     try {
-        const user = await User.findById(req.session.user._id);
-        if (!prof) {
-            res.status(404).json(user);
-        } else {
+        const user = await User.findById(req.params.id);
+        if (user) {
             res.status(200).json(user);
+        } else {
+            res.status(404);
         }
     } catch (err) {
+        console.log(err)
         res.json(err);
     };
 })
 
-
-
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
         const profile = req.body;
-        const user = await User.findByIdAndUpdate(req.session.passport.user, profile);
+        await User.findByIdAndUpdate(req.session.passport.user, profile);
+        const user = await User.findById(req.session.passport.user);
         res.status(200).json(user);
     } catch (err) {
+        console.log('error ', err)
         res.json(err)
     }
-
 });
 
 module.exports = router;
