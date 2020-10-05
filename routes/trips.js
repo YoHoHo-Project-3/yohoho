@@ -1,12 +1,13 @@
 const express = require("express");
 const Trip = require("../models/Trip");
-const User = require('../models/User');
 
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
+  const user = req.query.user;
+  const query = user ? { user } : undefined;
   try {
-    const trips = await Trip.find();
+    const trips = await Trip.find(query);
     res.json(trips);
   } catch (err) {
     res.json(err);
