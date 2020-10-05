@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default class ProfileEdit extends Component {
     render() { 
@@ -29,6 +30,7 @@ export default class ProfileEdit extends Component {
                     </Form.Group>
                     <Button type='submit'>Edit</Button>
                 </Form>
+                <Link/>
             </div>
         )
     }
