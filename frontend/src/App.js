@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import BookTrip from './pages/BookTrip'
 import OfferTrip from './pages/OfferTrip'
 import Navbar from './components/Navbar'
+import Dashboard from './pages/Dashboard'
  
 
 class App extends Component {
@@ -46,6 +47,11 @@ class App extends Component {
           exact
           path='/profile/:id'
           render={props => <Profile user={this.state.user} {...props}/>}
+        />
+        <Route
+          exact
+          path='/dashboard/'
+          render={props => <Dashboard user={this.state.user} {...props}/>}
         />
         <Route
           exact

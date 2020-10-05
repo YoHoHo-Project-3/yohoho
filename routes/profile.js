@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
 });
 
 
+
 router.get('/:id', async (req, res) => {
     try {
         const user = await User.findById(req.session.user._id);
@@ -35,6 +36,7 @@ router.put('/:id', async (req, res) => {
     } catch (err) {
         res.json(err)
     }
+
 });
 
 module.exports = router;
