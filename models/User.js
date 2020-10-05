@@ -7,6 +7,7 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  lastName: String,
   email: {
     type: String,
     required: [true, 'Email is required.'],
@@ -37,7 +38,7 @@ const userSchema = new Schema({
       ref: "Trip",
     },
   ],
-  lastName: String,
+  
   birthdate: Date,
   gender: String,
   biography: String,
