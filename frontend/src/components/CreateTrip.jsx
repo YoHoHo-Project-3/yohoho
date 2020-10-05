@@ -69,7 +69,7 @@ import { withRouter } from "react-router";
             </div>
 
             <div>
-              <label htmlFor="locationStrart">From: </label>
+              <label htmlFor="locationStrart">Start: </label>
               <input
                 type="text"
                 name="locationStart"
@@ -79,7 +79,7 @@ import { withRouter } from "react-router";
               />{" "}
             </div>
             <div>
-              <label htmlFor="locationEnd">To: </label>
+              <label htmlFor="locationEnd">End: </label>
               <input
                 type="text"
                 name="locationEnd"
