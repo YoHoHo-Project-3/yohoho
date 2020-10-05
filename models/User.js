@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  username: {
+  name: {
     type: String,
     required: true
   },
+  lastName: String,
   email: {
     type: String,
     required: [true, 'Email is required.'],
@@ -37,8 +38,7 @@ const userSchema = new Schema({
       ref: "Trip",
     },
   ],
-  name: String,
-  lastName: String,
+  
   birthdate: Date,
   gender: String,
   biography: String,

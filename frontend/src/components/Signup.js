@@ -5,7 +5,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 export default class Signup extends Component {
 
     state = {
-        username: '',
+        name: '',
         email: '',
         password: '',
         message: ''
@@ -20,8 +20,8 @@ export default class Signup extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { username, email, password} = this.state;
-        signup(username, email, password)
+        const { name, email, password } = this.state;
+        signup(name, email, password)
             .then(data => {
                 if (data.message) {
                     this.setState({
@@ -32,7 +32,9 @@ export default class Signup extends Component {
                     // now we need to put the user in the user key of the state of App.js
                     this.props.setUser(data);
                     // redirect to /projects
-                    this.props.history.push('/login');
+
+                    this.props.history.push('/profile/'+data._id);
+
                 }
 
             })
@@ -44,13 +46,13 @@ export default class Signup extends Component {
                 <h2>Signup</h2>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
-                        <Form.Label htmlFor="username">Username: </Form.Label>
+                        <Form.Label htmlFor="name">Name: </Form.Label>
                         <Form.Control
                             type='text'
-                            name='username'
-                            value={this.state.username}
+                            name='name'
+                            value={this.state.name}
                             onChange={this.handleChange}
-                            id='username'
+                            id='name'
                         />
                     </Form.Group>
                     <Form.Group>
