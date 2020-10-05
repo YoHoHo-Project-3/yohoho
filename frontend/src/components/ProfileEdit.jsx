@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+
 export default class ProfileEdit extends Component {
-    render() { 
+    render() {
         return (
             <div>
                 <h2>Edit your Profile</h2>
                 <Form onSubmit={this.props.handleSubmit}>
                     <Form.Group>
-                        <Form.Label htmlFor='username'>Username</Form.Label>
+                        <Form.Label htmlFor='name'>Name</Form.Label>
                         <Form.Control
                             type='text'
-                            name='username'
+                            name='name'
                             id='title'
-                            value={this.props.user.username}
+                            value={this.props.user.name}
                             onChange={this.props.handleChange}
                         />
                     </Form.Group>

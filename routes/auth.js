@@ -6,26 +6,26 @@ const passport = require('passport');
 
 
 router.post('/signup', (req, res, next) => {
-    const { username, email, password } = req.body;
+    const { name, email, password } = req.body;
 
     if (password.length < 8) {
         return res.status(400).json({ message: 'Your password must be 8 chars minimum' });
     }
-    if (username === '') {
-        return res.status(400).json({ message: 'Your username cannot be empty' });
+    if (name === '') {
+        return res.status(400).json({ message: 'Your name cannot be empty' });
     }
-    // check if username exists in database -> show message
-    User.findOne({ username: username })
+    // check if name exists in database -> show message
+    User.findOne({ email: email })
         .then(found => {
             if (found !== null) {
-                return res.status(400).json({ message: 'Your username is already taken' });
+                return res.status(400).json({ message: 'The email has already an associated account' });
             } else {
                 // hash the password, create the user and redirect to profile page
                 const salt = bcrypt.genSaltSync();
                 const hash = bcrypt.hashSync(password, salt);
 
                 User.create({
-                    username: username,
+                    name: name,
                     email: email,
                     password: hash
                 })
