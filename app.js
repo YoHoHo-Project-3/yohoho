@@ -98,7 +98,8 @@ app.use('/api/profile', profile);
 const auth = require('./routes/auth');
 app.use('/api/auth', auth);
 
-// app.use((req, res) => {res.sendFile(__dirname +'/client/build/index.html));
-// })
+app.use((req, res) => {
+  res.sendFile(__dirname +'/frontend/build/index.html')
+});
 
 module.exports = app;
