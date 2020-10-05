@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
 
 export default class ProfileEdit extends Component {
-
-    
     render() {
         return (
             <div>
@@ -81,9 +78,8 @@ export default class ProfileEdit extends Component {
                             onChange={this.props.handleChange}
                         />
                     </Form.Group>
-                    <Button type='submit'>Edit</Button>
+                    <Button type='submit'>Save</Button>
                 </Form>
-                <Link to='/dashboard'>Dashboard</Link>
             </div>
         )
     }

@@ -8,14 +8,29 @@ import ProfileEdit from './ProfileEdit';
 
 export default class Profile extends Component {
 
-    state = {
-        user: this.props.user,
-        error: null,
-        editForm: false
+    constructor(props){
+        super();
+        
+        this.state = {
+            error: null,
+            editForm: false,
+            user: this.fixEmptyUserFields(props.user)
+        }
+    }
+
+    fixEmptyUserFields(user) {
+        return {
+            name: user.name || '',
+            lastName: user.lastName || '',
+            picture: user.picture || '',
+            email: user.email || '',
+            telephone: user.telephone || '',
+            experience: user.experience || '',
+            birthdate: user.birthdate || ''
+        }
     }
 
     handleChange = event => {
-        console.log(event.target);
         const { name, value } = event.target;
         this.setState({
             user: Object.assign(this.state.user, { [name]: value })
@@ -24,21 +39,13 @@ export default class Profile extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const id = this.props.match.params.id;
-        Axios.put(`/api/profile/${id}`, {
-            picture: this.state.user.picture,
-            name: this.state.user.name,
-            lastName: this.state.user.lastName,
-            email: this.state.user.email,
-            telephone: this.state.user.telephone,
-            birthdate: this.state.user.birthdate,
-            experience: this.state.user.experience
-        })
+        Axios.put('/api/profile', this.state.user)
             .then(response => {
-                console.log('meep', response.data)
                 this.setState({
-                    user: response.data
+                    user: this.fixEmptyUserFields(response.data)
                 })
+                this.toggleEditForm();
+                this.props.handleUserChange(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -51,22 +58,18 @@ export default class Profile extends Component {
         }))
     }
 
-
-
     render() {
         if (this.state.error) return <div>{this.state.error}</div>
         if (!this.state.user) return <p>Loading ...</p>
-        const birthdate = (this.state.user.birthdate).slice(0, 10);
+        const birthdate = this.state.user.birthdate ? this.state.user.birthdate.slice(0, 10) : '';
 
         return (
-        
-
             <div className="profile-page">
                 <h3>Your profile</h3>
 
                 { this.state.editForm
                     ? <ProfileEdit
-                        {...this.state}
+                        user={ this.state.user }
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                     />
@@ -107,9 +110,10 @@ export default class Profile extends Component {
                                 </tr>
                             </tbody>
                         </table>
+
                         <Button onClick={this.toggleEditForm}>
                             Edit Profile
-                </Button>
+                        </Button> 
                     </div>
 
                 }

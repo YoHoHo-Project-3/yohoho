@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import ChatRoom from "./components/ChatRoom";
 import Store from "./components/Store";
 
+
 class App extends Component {
   state = {
     user: this.props.user,
@@ -32,7 +33,6 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-
           <Route
             exact
             path="/signup"
@@ -62,20 +62,21 @@ class App extends Component {
           <Route
             exact
             path="/book-trip"
-            render={(props) => <BookTrip user={this.state.user} />}
+            render={(props) => <BookTrip user={this.state.user} {...props} />}
           />
           <Route
             exact
             path="/offer-trip"
-            render={(props) => <OfferTrip user={this.state.user} />}
+            render={(props) => <OfferTrip user={this.state.user} {...props} />}
           />
           <Store>
             <Route
               exact
               path="/chat"
-              render={(props) => <ChatRoom user={this.state.user} />}
+              render={(props) => <ChatRoom user={this.state.user} {...props} />}
             />
           </Store>
+ 
         </Switch>
       </>
     );
