@@ -33,7 +33,7 @@ import { withRouter } from "react-router";
     axios
       .post("/api/trips", this.state)
       .then((response) => {
-          this.props.history.push("/profile")
+          this.props.history.push("/dashboard")
         console.log(response);
 
       })
