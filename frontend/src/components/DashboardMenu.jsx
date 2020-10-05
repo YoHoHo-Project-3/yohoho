@@ -15,6 +15,8 @@ export default function DashboardMenu(props) {
     <ListGroupItem><Card.Link href="#" onClick={props.showOwnTrips}>Owned Trips</Card.Link></ListGroupItem>
     <ListGroupItem><Card.Link href="#" onClick={props.showBookedTrips}>Booked Trips</Card.Link></ListGroupItem>
     <ListGroupItem><Card.Link href="#" onClick={props.showProfile}>Profile</Card.Link></ListGroupItem>
+    <ListGroupItem><Card.Link href="/offer-trip">Create Trip</Card.Link></ListGroupItem>
+
   </ListGroup>
   </Card.Body>
 </Card>
