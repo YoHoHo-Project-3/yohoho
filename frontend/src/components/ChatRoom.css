@@ -1,0 +1,9 @@
+h4, h1, h5{
+    display: flex;
+    justify-content: center;
+}
+ 
+h3, h4, h1, h5{
+    color: blue;
+}
+ 

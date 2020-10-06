@@ -10,38 +10,50 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { text } from "body-parser";
 import { CTX } from "./Store";
+import "./ChatRoom.css";
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "50px",
+    width: "70%",
+    marginLeft: "260px",
+    marginTop: "70px",
     padding: theme.spacing(3, 2),
   },
+
   flex: {
     display: "flex",
     alignItems: "center",
   },
   topicsWindow: {
-    width: "30%",
+    width: "15%",
     height: "300px",
-    borderRight: "1px solid grey",
+    borderRight: "2px solid grey",
   },
   chatWindow: {
-    width: "70%",
-    height: "300px",
+    width: "60%",
+    height: "400px",
     padding: "20px",
   },
   chatBox: {
     width: "85%",
+
+    marginLeft: "15em",
+    marginRight: "4em",
   },
 
   button: {
-    width: "15%",
+    width: "10%",
+    marginRight: "5em",
+  },
+  msgs: {
+    color: "#3f51b5",
   },
 }));
 export default function ChatRoom(props) {
   const classes = useStyles();
 
   //CTX Store
-  const { allChats, sendChatAction} = React.useContext(CTX);
+  const { allChats, sendChatAction } = React.useContext(CTX);
   const topics = Object.keys(allChats);
 
   //local state
@@ -50,11 +62,14 @@ export default function ChatRoom(props) {
   return (
     <div>
       <Paper className={classes.root}>
-        <Typography variant="h4" component="h3">
+        <Typography variant="h4" component="h1">
           Chat app
         </Typography>
+        <Typography variant="h4" component="h3">
+          Topics:
+        </Typography>
 
-        <Typography component="h5">{activeTopic}</Typography>
+        <Typography component="h5">Choosen topic: {activeTopic}</Typography>
 
         <div className={classes.flex}>
           <div className={classes.topicsWindow}>
@@ -75,11 +90,10 @@ export default function ChatRoom(props) {
 
           <div className={classes.chatWindow}>
             {allChats[activeTopic].map((chat, i) => (
-              <div className={classes.flex} key={i}>
-                <Chip label={chat.from} className={classes.chip} />
+              <div className={classes.flex} className={classes.msgs} key={i}>
                 <Typography variant="body1" gutterBottom>
                   {" "}
-                  {chat.msg}{" "}
+                  {chat.from}: {chat.msg}
                 </Typography>
               </div>
             ))}
@@ -97,10 +111,15 @@ export default function ChatRoom(props) {
             color="primary"
             className={classes.button}
             onClick={() => {
-              sendChatAction({ from: props.user.username, msg: textValue, topic: activeTopic});
+              sendChatAction({
+                from: props.user.username,
+                msg: textValue,
+                topic: activeTopic,
+              });
               changeTextValue("");
             }}
-          >Send
+          >
+            Send
           </Button>
         </div>
       </Paper>
