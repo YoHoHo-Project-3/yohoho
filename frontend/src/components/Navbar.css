@@ -34,22 +34,21 @@ nav {
 
 
 
-a:hover{
+.link-wrapper a:hover{
   color: white;
   text-decoration: none;
   opacity: 0.7;
 }
 
-a:visited {
+.link-wrapper a:visited {
   color: white;
   text-decoration: none;
 }
-a:active {
+.link-wrapper a:active {
   color: white;
   text-decoration: none;
 }
 
-
-a:link {
+.link-wrapper a:link {
   text-decoration: none;
 }
