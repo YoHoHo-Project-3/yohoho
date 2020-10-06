@@ -1,0 +1,47 @@
+#book-trip {
+    margin: 20px;
+}
+
+hr {
+    vertical-align: center;
+    margin-top: 50px;
+    width: 50em;
+    
+}
+
+.howThisWorks {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #80B6D2;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    padding:15px;
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ; 
+
+}
+
+
+
+.card-deck i{
+    font-size: xx-large;
+    padding: 10px;
+    color:#80B6D2;
+    
+}
+
+.card {
+    background-color: #faf5f1;
+    border:none;  
+
+}
+.card-title {
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ; 
+    color:#80B6D2;
+    font-weight: 800;
+}
+
+.card-text {
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ; 
+    color:#80B6D2;
+}

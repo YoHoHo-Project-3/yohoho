@@ -1,6 +1,55 @@
+nav {
+  margin: 10px 10px 30px 10px;
+  
+}
+
+.nav-items {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 .link-wrapper {
   display: flex;
   justify-content: flex-end;
- 
+  font-family: 'Baloo Tammudu 2', cursive, 'Segoe UI','Roboto';
 }
- 
+
+.blue{
+  background-color: #292838;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  
+}
+
+.red{
+  background-color: #E2000C;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+
+
+a:hover{
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+a:active {
+  color: white;
+  text-decoration: none;
+}
+
+
+a:link {
+  text-decoration: none;
+}

@@ -1,5 +1,102 @@
-.card{
-    color: rgb(32, 11, 51);
-    background-color: transparent;
-    
+body{
+    background-color: #FAF5F2;
 }
+
+.tripCardList{
+    display:flex;
+    justify-content: center;
+}
+
+.tripCard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display:flex;
+    justify-content: start;
+    width: 1080px;
+    height: 230px;
+    background-color: #B9DAEB ;
+    border-radius: 10px;
+    color: rgb(32, 11, 51);
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ; 
+}
+
+.noImage {
+    height: 185px;
+    width: 220px;
+    background-color: lightgray;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.tripCard img {
+    width: 250px;
+    padding: 15px
+}
+
+.cardInfo {
+    margin:15px;
+    padding: 15px;
+    width: 800px;
+    height: 150px;
+    background-color:#FAF5F2;
+    border-radius: 10px;
+}
+
+.cardInfo p {
+    color:#B9DAEB;
+    font-size: 14px;
+    font-weight: 600;
+    margin:0;
+}
+
+.tripOwnerLink {
+    display:flex;
+    justify-content: space-between;
+}
+
+.cardInfo h5 {
+    color:#292838;
+    font-size: 18px;
+    font-weight: 400;
+    margin:0;
+}
+
+.tripDates {
+    display:flex;
+    justify-content: space-between;
+    margin:0;
+}
+
+.tripDates p {
+    padding-top:20px;
+    color:#292838;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tripFigures {
+    display:flex;
+    justify-content: space-between;
+}
+
+.tripFigures p {
+    color:#292838;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tripCard .button {
+    width: 50%;
+}
+
+.bookNowButton {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;  
+}
+
+#linkToTripOwner {
+    color: #E2000C;
+}
+

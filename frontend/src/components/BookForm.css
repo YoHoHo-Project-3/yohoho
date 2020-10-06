@@ -1,5 +1,17 @@
- .book{
-    background-image: url('../images/dawn-3361172_1920.jpg');
-    height: 800px;
-    background-size: cover;
- }
+.book {
+   color: #292838;
+   font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ;
+   margin-top: 20px;
+}
+
+
+.inputGroup {
+   display:flex;
+   justify-content: center;
+}
+
+.inputGroup input {
+   width: 15em;
+   height: 3em;
+}
+
