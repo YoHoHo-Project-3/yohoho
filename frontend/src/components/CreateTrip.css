@@ -1,11 +1,58 @@
-.create{
-    background-image: url('../images/seward-1623006_1920.jpg');
-    height: 800px;
-    background-size: cover;
-    color: black;
- }
- .formCreate label{
-     
-     font-size: 16pt;
-      
- }
+ 
+.create {
+  background-image: url("../images/boat.jpeg");
+  height: 850px;
+  background-size: cover;
+  color: rgb(164, 168, 154);
+}
+.create label {
+  display: flex;
+  justify-content: center;
+  font-size: 20pt;
+}
+.titlelbl {
+  margin-top: 1em;
+}
+.createh1 {
+  display: flex;
+  justify-content: left;
+  margin-left: 8em;
+}
+.createBtn {
+  color: rgb(164, 168, 154);
+  background-color: transparent;
+  margin-left: 18.5em;
+  height: 60px;
+  width: 120px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1.5em;
+  margin-top: 2em;
+}
+.createBtn:hover {
+  background-color: black;
+  color: rgb(164, 168, 154);
+}
+
+input[type="date"] {
+  text-transform: uppercase;
+  color: rgb(164, 168, 154);
+}
+.create input {
+  width: 550px;
+  height: 32px;
+  margin-left: 4em;
+  margin-right: 4em;
+  background-color: transparent;
+  color: white;
+}
+.formCreate {
+  margin-right: 50em;
+}
+.inputs {
+  border: 5px solid grey;
+  border-radius: 80px;
+  width: 700px;
+}
+ 
