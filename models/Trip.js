@@ -4,11 +4,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
-    trip_id: {
-    type: String,
-    required: false,
-    ref: "User",
-  },
   title: {
     type: String,
     required: [true, "Title is required."],
@@ -20,6 +15,7 @@ const tripSchema = new Schema({
   user: {
     required: true,
     type: Schema.Types.ObjectId,
+    ref: "User",
   },
   locationStart: {
     required: [true, "The start location is required."],
@@ -42,17 +38,22 @@ const tripSchema = new Schema({
     type: String,
   },
   slotsAvailable: {
-    required: [true, "Please insert the total available slots."],
-    type: String,
+    // required: [true, "Please insert the total available slots."],
+    required: false,
+    type: Number,
   },
   slots_booked: {
     required: false,
-    type: String,
+    type: Number,
   },
   image: {
     required: [false, "Please upload an image."],
     type: String,
-  }
+  },
+  passengers: [{
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  }],
 });
 const Trip = mongoose.model("Trip", tripSchema);
 module.exports = Trip;

@@ -20,7 +20,7 @@ require('./configs/passport.js');
 
 
 mongoose
-  .connect( process.env.MONGO_CONNECT || 'mongodb://localhost/yohoho', {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect(process.env.MONGO_CONNECT || 'mongodb://localhost/yohoho', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -84,13 +84,14 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const bookTrip = require('./routes/bookTrip');
+app.use('/api/bookTrip', bookTrip);
+
 const trips = require('./routes/trips');
 app.use('/api/trips', trips);
 
-
 const search = require('./routes/search');
 app.use('/api/search', search);
-
 
 const profile = require('./routes/profile');
 app.use('/api/profile', profile);
@@ -99,7 +100,7 @@ const auth = require('./routes/auth');
 app.use('/api/auth', auth);
 
 app.use((req, res) => {
-  res.sendFile(__dirname +'/frontend/build/index.html')
+  res.sendFile(__dirname + '/frontend/build/index.html')
 });
 
 module.exports = app;

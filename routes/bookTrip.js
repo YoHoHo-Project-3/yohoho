@@ -38,14 +38,26 @@ router.delete("/:id", async (req, res) => {
     };
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/unbook/:tripId", async (req, res, next) => {
+    console.log(req.user._id, req.params.tripId)
     try {
-        const trip = req.body;
-        trip.user_id = req.user._id;
+        let updateUser = await User.findByIdAndUpdate(req.user._id, { $pull: { trips: req.params.tripId } })
+        let updateTrip = await Trip.findByIdAndUpdate(req.params.tripId, { $pull: { passengers: req.user._id }, $inc: { slotsAvailable: +1 }, $inc: { slots_booked: -1 } })
 
-        trip.slots_booked = 0
-        await Trip.create(trip);
-        res.status(201).json(trip);
+        res.status(201).json(updateTrip);
+    } catch (err) {
+        res.status(400).json(err);
+        console.log("error======>", err);
+    };
+});
+
+router.post("/:tripId", async (req, res, next) => {
+    console.log(req.user._id, req.params.tripId)
+    try {
+        let updateUser = await User.findByIdAndUpdate(req.user._id, { $push: { trips: req.params.tripId } })
+        let updateTrip = await Trip.findByIdAndUpdate(req.params.tripId, { $push: { passengers: req.user._id }, $inc: { slotsAvailable: -1 }, $inc: { slots_booked: +1 } })
+
+        res.status(201).json(updateTrip);
     } catch (err) {
         res.status(400).json(err);
         console.log("error======>", err);

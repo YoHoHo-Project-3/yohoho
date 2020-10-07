@@ -39,6 +39,7 @@ export default class BookForm extends Component {
       return <h1>Loading.....</h1>;
     }
     let filtered = this.state.trips.filter((trip) => {
+      console.log(trip, "trip")
       return (
         trip.locationStart
           .toLowerCase()
@@ -79,7 +80,7 @@ export default class BookForm extends Component {
         </div>
         <div className="tripWrapper d-flex">
           {filtered.map((trip) => {
-            return <TripCard key={trip._id} trip={trip} />;
+            return <TripCard key={trip._id} trip={trip} user={this.props.user} />;
           })}
         </div>
         {filtered.length === 0 && <h1>your result not found</h1>}
