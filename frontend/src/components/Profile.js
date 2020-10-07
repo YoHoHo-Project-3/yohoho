@@ -72,9 +72,9 @@ export default class Profile extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                     />
-                    : <div >
-                        <table className="table" width='300'>
-                            <tbody>
+                    : <div id='profile-blog'>
+                        <table className="table" >
+                            <tbody className="responsive-row">
                                 <tr>
                                     <th scope='col'>Profile Picture</th>
                                     <td>{this.state.user.picture}</td>
