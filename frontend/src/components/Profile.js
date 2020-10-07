@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Profile.css'
 // import { Link } from "react-router-dom";
@@ -73,7 +72,7 @@ export default class Profile extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                     />
-                    : <div className='table-responsive'>
+                    : <div >
                         <table className="table" width='300'>
                             <tbody>
                                 <tr>
@@ -110,10 +109,10 @@ export default class Profile extends Component {
                                 </tr>
                             </tbody>
                         </table>
-
-                        <Button onClick={this.toggleEditForm}>
-                            Edit Profile
-                        </Button> 
+                        <button className='btn btn-danger' onClick={this.toggleEditForm}>
+                        Edit Profile
+                        </button>
+                        
                     </div>
 
                 }

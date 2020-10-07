@@ -112,7 +112,7 @@ import { withRouter } from "react-router";
             <div>
               <label htmlFor="price">Price: </label>
               <input
-                type="number"
+                type="text"
                 name="price"
                 id="price"
                 value={this.state.price}
