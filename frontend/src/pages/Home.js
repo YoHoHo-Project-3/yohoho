@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigator from "../components/Navigator";
 import CardInfo from "./../components/CardInfo";
-import {cardData} from '../helpers/cardData'
+import { cardData } from '../helpers/cardData'
 import { CardDeck } from "react-bootstrap";
 
 export default class Home extends Component {
@@ -14,7 +14,7 @@ export default class Home extends Component {
       <div>
         <Navigator />
 
-          <center><hr/></center>
+        <center><hr /></center>
 
         <div>
           <h1 className="howThisWorks">How does it work?</h1>
@@ -22,9 +22,9 @@ export default class Home extends Component {
 
 
         <CardDeck>
-            {this.state.cardData.map((e,i) => {
+          {this.state.cardData.map((e, i) => {
             return <CardInfo key={i} data={e} />;
-            })}
+          })}
         </CardDeck>
 
       </div>
