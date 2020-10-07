@@ -89,7 +89,7 @@ export default class BookForm extends Component {
           })}
  
         </div>
-        {filtered.length === 0 && <h1>your result not found</h1>}
+        {filtered.length === 0 && <h1>Sorry, we couldn't find any trips</h1>}
       </div>
     );
   }

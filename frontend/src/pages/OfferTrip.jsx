@@ -17,7 +17,7 @@ class OfferTrip extends Component {
     return (
       <div>
         <CreateTrip userId={this.props.user._id} />
-        <h1>How does it work?</h1>
+        <h1 className="d-flex  justify-content-center">How does it work?</h1>
         <div className="d-flex  justify-content-around">
           {this.state.cardData.map((e, i) => {
             return <CardInfo key={i} data={e} />;

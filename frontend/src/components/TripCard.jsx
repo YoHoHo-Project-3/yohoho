@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 export default class TripCard extends Component {
-  //  ----------------New -------------------
+ 
   state = {
     clicked: false,
     booked: this.props.trip.passengers.includes(this.props.user._id) || "",
