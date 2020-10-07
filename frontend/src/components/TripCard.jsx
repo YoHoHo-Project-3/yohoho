@@ -80,9 +80,8 @@ export default class TripCard extends Component {
         <section className='tripCardList'>
           <div className="tripCard">
                 {this.props.trip.image ? <img src={this.props.trip.image} alt=""/> : 
-                <div className='noImage'>
-                no image
-                </div>
+                <img src='../images/boat1.jpeg' alt="default img"/>
+                
               }
             
     

@@ -100,3 +100,88 @@ body{
     color: #E2000C;
 }
 
+
+/* For mobile phones: */
+
+
+@media only screen and (max-width: 768px) {
+   
+    .tripCardList{
+        display:flex;
+        justify-content: flex-start;
+    }
+
+    .tripCard {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 300px;
+        height: 500px;
+        background-color: #B9DAEB ;
+        border-radius: 10px;
+        color: rgb(32, 11, 51);
+        font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ; 
+    }
+
+    .tripCard img {
+        height: 190px;
+        padding: 15px;
+        position: center;
+    }
+
+    .cardInfo {
+        margin:15px;
+        padding: 15px;
+        width: 270px;
+        height: 300px;
+        background-color:#FAF5F2;
+        border-radius: 10px;
+    }
+
+    .tripDates {
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin:0;
+    }
+
+    .tripDates p {
+        padding-top:10px;
+        color:#292838;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .tripFigures {
+        display:flex;
+        justify-content: space-between;
+        padding: 20px 0 10px 0;
+    }
+    
+    .tripFigures p {
+        color:#292838;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .bookNowButton {
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;  
+    }
+
+    .tripOwnerLink {
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .dashboard {
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+  }
