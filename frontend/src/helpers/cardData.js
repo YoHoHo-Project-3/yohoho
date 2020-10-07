@@ -1,3 +1,5 @@
+
+
 export let cardData = [
     {
       icon: "icon-edit",
@@ -19,7 +21,7 @@ export let cardData = [
     },
     {
       icon: "icon-comments",
-      title: "4. 4.Clear the details",
+      title: "4. Clear the details",
       description:
         "Feel free to chat with your captain any time without using your personal contacts. Make the final arrangements and onboard.",
     },

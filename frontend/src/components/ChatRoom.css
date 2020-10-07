@@ -1,0 +1,8 @@
+.chat-center {
+    display: flex;
+    justify-content: center;
+}
+
+.chat-blue {
+    color: blue;
+}

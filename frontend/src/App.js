@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
-import Profile from "./components/Profile";
+import PublicProfile from "./pages/PublicProfile";
 import BookTrip from "./pages/BookTrip";
 import OfferTrip from "./pages/OfferTrip";
 import Navbar from "./components/Navbar";
@@ -51,7 +51,7 @@ class App extends Component {
           <Route
             exact
             path="/profile/:id"
-            render={(props) => <Profile user={this.state.user} {...props} />}
+            render={(props) => <PublicProfile {...props} />}
           />
           <Route
             exact

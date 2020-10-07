@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./BookForm.css";
 import axios from "axios";
-import TripCard from "./../components/TripCard";
+import TripCard from "./TripCard";
+import InputGroup from 'react-bootstrap/InputGroup'
+
 export default class BookForm extends Component {
   state = {
     trips: [],
@@ -55,7 +57,7 @@ export default class BookForm extends Component {
     return (
       <div className="book">
         <h1> All Trips</h1>
-        <div>
+        <div className="inputGroup">
           <input
             type="text"
             name="locationStart"

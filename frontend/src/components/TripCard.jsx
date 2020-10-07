@@ -10,7 +10,9 @@ export default class TripCard extends Component {
   //  ----------------New -------------------
   state = {
     clicked: false,
-    booked: this.props.trip.passengers.includes(this.props.user._id)
+    booked: this.props.trip.passengers.includes(this.props.user._id) || "",
+    owner: this.props.trip.user == this.props.user._id,
+    // created: this.props.user.createdTrips.includes(this.props.user._id)
   }
 
   componentDidUpdate(prevProps) {
@@ -19,12 +21,18 @@ export default class TripCard extends Component {
         booked: this.props.trip.passengers.includes(this.props.user._id)
       })
     }
+    // if (prevProps.user !== this.props.user) {
+    //   this.setState({
+    //     createdTrips: this.props.user.createdTrips.includes(this.props.trip._id)
+    //   })
+    // }
   }
 
   handleClick = (id) => {
     this.requestBooking(id)
     this.setState({
-      clicked: !this.state.clicked
+      clicked: !this.state.clicked,
+      booked: true,
     })
   }
 
@@ -34,6 +42,23 @@ export default class TripCard extends Component {
     try {
       await axios.post(`/api/bookTrip/${id}`
       )
+
+      return (<Redirect to="/dashboard" />)
+
+    } catch (err) {
+      console.log('Error:' + err);
+    }
+  };
+
+  handleUnbook = async (id) => {
+    console.log(id, "ID")
+    try {
+      await axios.post(`/api/bookTrip/unbook/${id}`
+      )
+
+      this.setState({
+        booked: false,
+      })
       return (<Redirect to="/dashboard" />)
 
     } catch (err) {
@@ -44,7 +69,7 @@ export default class TripCard extends Component {
   handleDelete = async (id) => {
     console.log(id, "ID")
     try {
-      await axios.post(`/api/bookTrip/unbook/${id}`
+      await axios.delete(`/api/trips/${id}`
       )
       return (<Redirect to="/dashboard" />)
 
@@ -54,6 +79,7 @@ export default class TripCard extends Component {
   };
   // -----------------Hasta aquí ---------------------
   render() {
+    console.log(this.state.owner, "owner")
     return (
       <div>
         <Card style={{ width: "17rem", backgroundColor: "#ffffff" }}>
@@ -70,9 +96,11 @@ export default class TripCard extends Component {
             <Card.Text><Link to={'/profile/' + this.props.trip.user}>Boat Owner Profile</Link></Card.Text>
           </Card.Body>
           {/* ..........................Botón debajo */}
-          {this.state.booked ?
-            <button onClick={() => this.handleDelete(this.props.trip._id)}>Unbook trip</button> :
-            <button onClick={() => this.handleClick(this.props.trip._id)}>Book trip</button>}
+          {this.state.owner ?
+            <button onClick={() => this.handleDelete(this.props.trip._id)}>Delete Trip</button> :
+            this.state.booked ?
+              <button onClick={() => this.handleUnbook(this.props.trip._id)}>Unbook trip</button> :
+              <button onClick={() => this.handleClick(this.props.trip._id)}>Book trip</button>}
         </Card>
 
       </div>
