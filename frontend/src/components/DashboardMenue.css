@@ -1,0 +1,42 @@
+.dashboard-menue {
+    margin: 20px 20px;
+    border: 1px;
+    border-color: #80B6D2 ;
+}
+
+
+#dashboard-name {
+    color: #292838;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#dashboard-experience {
+    font-size: 18px;
+    font-weight: 400;
+    font-style: oblique;
+    color:#80B6D2;
+}
+
+.link-block-menue  {
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+}
+
+.link-block-menue a {
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ;
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    color:#80B6D2;
+}
+
+.link-block-menue a:hover {
+    text-decoration: none;
+    color:#292838;
+}
+
+.link-block-menue a:visited {
+    text-decoration: none;
+}

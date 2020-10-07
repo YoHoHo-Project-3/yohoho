@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
+import './ProfileEdit.css'
 
 
 export default class ProfileEdit extends Component {
     render() {
         return (
-            <div>
+            <div className='profile-edit-page'>
                 <h2>Edit your Profile</h2>
                 <Form onSubmit={this.props.handleSubmit}>
                     <Form.Group>
@@ -29,7 +30,7 @@ export default class ProfileEdit extends Component {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label htmlFor='lastName'>Lastname:</Form.Label>
+                        <Form.Label htmlFor='lastName'>Lastname</Form.Label>
                         <Form.Control
                             type='text'
                             name='lastName'
@@ -69,7 +70,7 @@ export default class ProfileEdit extends Component {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label htmlFor='experience'>Experience:</Form.Label>
+                        <Form.Label htmlFor='experience'>Experience</Form.Label>
                         <Form.Control
                             type='text'
                             name='experience'
@@ -78,7 +79,9 @@ export default class ProfileEdit extends Component {
                             onChange={this.props.handleChange}
                         />
                     </Form.Group>
-                    <Button type='submit'>Save</Button>
+                    <button className='btn btn-danger' onClick={this.toggleEditForm}>
+                        Save
+                        </button>
                 </Form>
             </div>
         )
