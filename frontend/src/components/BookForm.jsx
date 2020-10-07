@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./BookForm.css";
 import axios from "axios";
-import TripCard from "./TripCard";
+ 
+import TripCard from "./../components/TripCard";
+ 
 import InputGroup from 'react-bootstrap/InputGroup'
 
 export default class BookForm extends Component {
@@ -80,10 +82,12 @@ export default class BookForm extends Component {
             onChange={this.handleChange}
           />
         </div>
+ 
         <div className="tripWrapper d-flex">
           {filtered.map((trip) => {
             return <TripCard key={trip._id} trip={trip} user={this.props.user} />;
           })}
+ 
         </div>
         {filtered.length === 0 && <h1>your result not found</h1>}
       </div>
