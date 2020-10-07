@@ -38,7 +38,6 @@ export default class BookForm extends Component {
   };
 
   render() {
-    console.log("trips should be here ", this.state);
     if (this.state.loading) {
       return <h1>Loading.....</h1>;
     }
@@ -83,7 +82,7 @@ export default class BookForm extends Component {
           />
         </div>
  
-        <div className="tripWrapper d-flex">
+        <div>
           {filtered.map((trip) => {
             return <TripCard key={trip._id} trip={trip} user={this.props.user} />;
           })}
