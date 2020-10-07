@@ -40,8 +40,11 @@ router.post("/", async (req, res, next) => {
   try {
     const trip = req.body;
     trip.user_id = req.user._id;
+    // ----new user
+    const user = req.query.user;
 
     trip.slots_booked = 0
+    user.createdTrips.push(user._id);
     await Trip.create(trip);
     res.status(201).json(trip);
   } catch (err) {

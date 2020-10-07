@@ -6,36 +6,41 @@ import Axios from "axios";
 import Profile from '../components/Profile'
 
 export default class Dashboard extends Component {
-    constructor(props){
+    constructor(props) {
         super();
         this.state = {
-            ownTrips: [], 
-            bookedTrips: [], 
+            ownTrips: [],
+            bookedTrips: [],
             showMode: 'ownTrips',
             user: props.user
         };
     }
 
-
-    async componentDidMount() {
+    async getData() {
         try {
-            const response = await Axios.get('/api/trips?user='+this.state.user._id);
-            this.setState({ownTrips: response.data});
-        } catch(err) {
+            const response = await Axios.get('/api/trips?user=' + this.state.user._id);
+            console.log(response);
+            this.setState({ ownTrips: response.data });
+        } catch (err) {
             console.log(err);
         }
     }
 
+
+    componentDidMount() {
+        this.getData()
+    }
+
     showOwnTrips() {
-        this.setState({showMode: 'ownTrips' });
+        this.setState({ showMode: 'ownTrips' });
     }
 
     showBookedTrips() {
-        this.setState({showMode: 'bookedTrips' });
+        this.setState({ showMode: 'bookedTrips' });
     }
 
     showProfile() {
-        this.setState({showMode: 'profile' });
+        this.setState({ showMode: 'profile' });
     }
 
     handleUserChange = user => {
@@ -47,22 +52,25 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <DashboardMenu 
-                user={this.state.user} 
-                showOwnTrips={() => {this.showOwnTrips()}} 
-                showBookedTrips={() => {this.showBookedTrips()}} 
-                showProfile={() => {this.showProfile()}}/>
-                <div>
-                {this.state.showMode === 'ownTrips' ? this.state.ownTrips.map(function(trip, index) {
-                    return (<TripCard trip={trip} key={index}/>)
+ 
+                <DashboardMenu
+                    user={this.state.user}
+                    showOwnTrips={() => { this.showOwnTrips() }}
+                    showBookedTrips={() => { this.showBookedTrips() }}
+                    showProfile={() => { this.showProfile() }} />
+
+                {this.state.showMode === 'ownTrips' ? this.state.ownTrips.map((trip, index) => {
+                    return (<TripCard trip={trip} key={index} user={this.props.user} />)
+ 
                 }) : null}
 
-                {this.state.showMode === 'bookedTrips' ? this.state.bookedTrips.map(function(trip, index) {
-                    return (<TripCard trip={trip} key={index}/>)
+                {this.state.showMode === 'bookedTrips' ? this.state.bookedTrips.map((trip, index) => {
+                    return (<TripCard trip={trip} key={index} user={this.props.user} />)
                 }) : null}
-
-                {this.state.showMode === 'profile' ? <Profile handleUserChange={(user)=>{this.handleUserChange(user)}} user={this.state.user}/> : null}
-                </div>
+ 
+                {this.state.showMode === 'profile' ? <Profile handleUserChange={(user) => { this.handleUserChange(user) }} user={this.state.user} /> : null}
+ 
+ 
             </div>
         )
     }

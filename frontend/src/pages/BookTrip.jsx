@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import CardInfo from "./../components/CardInfo";
-import {cardData} from '../helpers/cardData' 
+import { cardData } from '../helpers/cardData'
 import BookForm from '../components/BookForm'
 import './BookTrip.css'
 import { CardDeck } from "react-bootstrap";
 
 
 class BookTrip extends Component {
-    state = {
-        cardData: cardData
-      };
-    
+  state = {
+    cardData: cardData
+  };
+
   render() {
     console.log(this.props);
-  if (this.props.user === "") {
+    if (this.props.user === "") {
       this.props.history.push("login");
-    }  
+    }
     return (
       <div id='book-trip'>
-        <BookForm/>
+ 
+ 
+   
       
-
+<BookForm user={this.props.user} />
       <center><hr/></center>
 
         <div>
@@ -38,8 +40,10 @@ class BookTrip extends Component {
         
       </div>
       
+ 
     );
   }
 }
+
 
 export default withRouter(BookTrip);

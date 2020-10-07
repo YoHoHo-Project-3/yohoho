@@ -29,8 +29,8 @@ class App extends Component {
 
   render() {
     return (
-    <>
-        <Navbar setUser={this.setUser} user={this.state.user}/> 
+      <>
+        <Navbar setUser={this.setUser} user={this.state.user} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
@@ -76,7 +76,6 @@ class App extends Component {
               render={(props) => <ChatRoom user={this.state.user} {...props} />}
             />
           </Store>
- 
         </Switch>
       </>
     );
