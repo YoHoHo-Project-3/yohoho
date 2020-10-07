@@ -7,7 +7,7 @@ export default class ProfileEdit extends Component {
     render() {
         return (
             <div className='profile-edit-page'>
-                <h2>Edit your Profile</h2>
+                <h3>Edit your Profile</h3>
                 <Form onSubmit={this.props.handleSubmit}>
                     <Form.Group>
                         <Form.Label htmlFor='picture'>Picture</Form.Label>
