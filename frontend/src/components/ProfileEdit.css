@@ -1,0 +1,23 @@
+.profile-edit-page {
+    margin-left: 25px;
+    margin-top: 20px;
+    padding: 20px;
+    font-family: 'Baloo Tammudu 2', cursive, 'Segoe UI','Roboto';
+    background-color: #B9DAEB;
+    border-radius: 10px;
+}
+.profile-edit-page h2{
+   padding-bottom: 20px;
+}
+ 
+ .form-group{
+     display:flex;
+     flex-direction:column;
+ }
+ 
+ .form-group input {
+    width: 15em;
+    height: 2em;
+ }
+ 
+ 

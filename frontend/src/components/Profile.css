@@ -4,6 +4,8 @@
     padding: 20px;
     font-family: 'Baloo Tammudu 2', cursive, 'Segoe UI','Roboto';
     background-color: #B9DAEB;
+    border-radius: 10px;
+    
 }
 .table-responsive{
     background-color: #B9DAEB;
