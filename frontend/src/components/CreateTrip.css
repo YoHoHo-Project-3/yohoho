@@ -1,3 +1,4 @@
+ 
 .create {
   background-image: url("../images/boat.jpeg");
   height: 850px;
@@ -54,9 +55,4 @@ input[type="date"] {
   border-radius: 80px;
   width: 700px;
 }
-@media screen and (max-width: 800px) {
-    input[type=text] input[type=number] input[type=date] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
+ 

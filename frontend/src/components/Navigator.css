@@ -1,11 +1,42 @@
+body {
+    background-color: #FAF5F2;
+}
 .background{
     background-image: url('../images/sailboat-2423484_1920.jpg');
     height: 700px;
     background-size: cover;
+    margin:0px;
 }
 .background a{
     display: flex;
- justify-content:  center;
-    color: black;
+    justify-content: center;
     font-size: 24pt;
 }
+
+.main-links {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    font-family: 'Baloo Tammudu 2', cursive, 'Segoe UI','Roboto';
+    padding-top: 20em;
+}
+
+.main-links a:hover{
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+  }
+  
+  .main-links a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .main-links a:active {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .main-links a:link {
+    text-decoration: none;
+  }
+  

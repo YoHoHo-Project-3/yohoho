@@ -61,14 +61,14 @@ export default function ChatRoom(props) {
   return (
     <div>
       <Paper className={classes.root}>
-        <Typography variant="h4" component="h1">
+        <Typography className='chat-blue chat-center' variant="h4" component="h1">
           Chat app
         </Typography>
-        <Typography variant="h4" component="h3">
+        <Typography className='chat-blue' variant="h4" component="h3">
           Topics:
         </Typography>
 
-        <Typography component="h5">Choosen topic: {activeTopic}</Typography>
+        <Typography className='chat-blue chat-center' component="h5">Choosen topic: {activeTopic}</Typography>
 
         <div className={classes.flex}>
           <div className={classes.topicsWindow}>

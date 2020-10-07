@@ -3,6 +3,8 @@ import { withRouter } from "react-router";
 import CardInfo from "./../components/CardInfo";
 import {cardData} from '../helpers/cardData' 
 import BookForm from '../components/BookForm'
+import './BookTrip.css'
+import { CardDeck } from "react-bootstrap";
 
 
 class BookTrip extends Component {
@@ -16,17 +18,26 @@ class BookTrip extends Component {
       this.props.history.push("login");
     }  
     return (
-      <div>
+      <div id='book-trip'>
         <BookForm/>
-          
-       <h1>How does it work?</h1>
-        <div className="d-flex  justify-content-around" >        
+      
 
+      <center><hr/></center>
+
+        <div>
+        <h1 className="howThisWorks">How does it work?</h1>
+        </div>
+      
+     
+       
+       <CardDeck>
           {this.state.cardData.map((e,i) => {
             return <CardInfo key={i} data={e} />;
           })}
-        </div>
+        </CardDeck>
+        
       </div>
+      
     );
   }
 }
