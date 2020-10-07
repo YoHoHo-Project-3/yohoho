@@ -1,0 +1,37 @@
+.login-background {
+    background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60");
+    height: 85vh;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    color: rgb(164, 168, 154);
+}
+
+.login-form {
+    text-align: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.h2-login {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px #003B3E;
+}
+
+.loginBtn, .loginBtn:hover, .loginBtn:active, .loginBtn:visited {
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.submit-login {
+    background-color: white;
+    justify-content: center;
+}
+
+.link-login, .link-login:hover {
+    color: white;
+    text-shadow: 2px 2px #003B3E;
+}

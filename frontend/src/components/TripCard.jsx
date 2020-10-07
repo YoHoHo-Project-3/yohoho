@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import "./TripCard.css";
-import FunctionBook from "./BookedTrips"
 import axios from "axios";
 
 
