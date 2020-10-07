@@ -52,7 +52,7 @@ export default class Dashboard extends Component {
                 showOwnTrips={() => {this.showOwnTrips()}} 
                 showBookedTrips={() => {this.showBookedTrips()}} 
                 showProfile={() => {this.showProfile()}}/>
-                
+                <div>
                 {this.state.showMode === 'ownTrips' ? this.state.ownTrips.map(function(trip, index) {
                     return (<TripCard trip={trip} key={index}/>)
                 }) : null}
@@ -62,6 +62,7 @@ export default class Dashboard extends Component {
                 }) : null}
 
                 {this.state.showMode === 'profile' ? <Profile handleUserChange={(user)=>{this.handleUserChange(user)}} user={this.state.user}/> : null}
+                </div>
             </div>
         )
     }
