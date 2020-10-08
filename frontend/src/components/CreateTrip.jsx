@@ -42,7 +42,6 @@ import { withRouter } from "react-router";
       });
   };
   render() {
-    console.log(this.props);
     return (
       <div className="create">
         <h1 className='createh1'>Create the Trip</h1>
