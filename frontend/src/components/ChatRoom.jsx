@@ -58,8 +58,8 @@ export default function ChatRoom(props) {
   const [textValue, changeTextValue] = React.useState("");
   return (
     <div>
-      <Paper className={classes.root}>
-        <Typography className='chat-blue chat-center' variant="h4" component="h1">
+      <Paper className={classes.root} >
+        <Typography className='chat-blue chat-center'  variant="h4" component="h1">
           Chat app
         </Typography>
         <Typography className='chat-blue' variant="h4" component="h3">
