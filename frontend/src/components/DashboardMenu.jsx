@@ -19,6 +19,7 @@ export default function DashboardMenu(props) {
       <a rel="stylesheet" href="#" onClick={props.showBookedTrips}>Booked Trips</a>
       <a rel="stylesheet" href="/offer-trip">Create Trip</a>
       <a rel="stylesheet" href="#" onClick={props.showProfile}>Profile</a>
+      <a rel="stylesheet" href="/chat">Chat</a>
     </div>  
   </div>
    
