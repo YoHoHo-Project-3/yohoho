@@ -19,9 +19,9 @@ body {
   
 }
 .chatbody {
-  background-image: url("../images/sea.jpeg");
-  height: 850px;
- margin-top: -2em;
+  background-image: url("../images/sea.jpg");
+  height: 950px;
+ margin-top: -2.1em;
   background-size: cover;
   background-repeat: no-repeat;
    
@@ -30,4 +30,7 @@ body {
   color: darkblue;
 }
   
- 
+#root input{
+  height: 3em;
+  width: 75em;
+}

@@ -12,13 +12,14 @@ import "./ChatRoom.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "45%",
-    marginLeft: "450px",
+    width: "55%",
+    height: "850px",     
+    marginLeft: "330px",
     padding: theme.spacing(3, 2),
     backgroundColor: "transparent",
-    border: "2px solid darkblue",
-    borderRadius: "45px",
-     
+    border: "1.5px solid darkblue",
+    boxShadow: "inset 8px 19px 20px 35px rgba(0,0,0,0.32)",
+    borderRadius: "35px",
   },
 
   flex: {
@@ -27,28 +28,34 @@ const useStyles = makeStyles((theme) => ({
   },
 
   topicsWindow: {
-    width: "20%",
-    height: "300px",
-    borderRight: "2px solid darkblue",
+    width: "15%",
+    
   },
   chatWindow: {
-    width: "70%",
-    height: "400px",
+    marginTop: "1em",
+    width: "80%",
+    height: "600px",
     padding: "50px",
+    border: "1px solid darkblue",
+    borderRadius: "40px",
   },
   chatBox: {
-    width: "60%",
-
-    marginLeft: "15em",
-    marginRight: "4em",
+    width: "600px",
+    marginLeft: "10em",
+    marginRight: "0.5em",
+    marginTop:"1em"
   },
 
   button: {
-    width: "10%",
-    marginRight: "5em",
+    marginTop:"1em",
+    width: "15%",
+    height: "53px",
+    backgroundColor: " #E2000C",
+    marginRight: "3em",
   },
-  msgs: {
-    color: "darkblue",
+  msgs: {   
+    color: " red",
+      
   },
 }));
 export default function ChatRoom(props) {
@@ -75,14 +82,7 @@ export default function ChatRoom(props) {
         >
           CHAT
         </Typography>
-        <Typography
-          className="chat-blue"
-          className="chathtopic"
-          variant="h4"
-          component="h4"
-        >
-          Topics:
-        </Typography>
+   
 
         <Typography
           className="chat-blue chat-center"
@@ -115,6 +115,7 @@ export default function ChatRoom(props) {
                 <Typography variant="body1" gutterBottom>
                   {chat.from}: {chat.msg}
                 </Typography>
+                
               </div>
             ))}
           </div>
