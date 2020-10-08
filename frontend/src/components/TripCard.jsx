@@ -1,9 +1,10 @@
  
 import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom';
+import image from '../images/boat1.jpeg';
  
 import "./TripCard.css";
-import { Card, Button } from "react-bootstrap";
+
  
 import axios from "axios";
 
@@ -13,7 +14,7 @@ export default class TripCard extends Component {
   state = {
     clicked: false,
     booked: this.props.trip.passengers.includes(this.props.user._id) || "",
-    owner: this.props.trip.user == this.props.user._id,
+    owner: this.props.trip.user === this.props.user._id,
      
   }
 
@@ -57,6 +58,7 @@ export default class TripCard extends Component {
       this.setState({
         booked: false,
       })
+  
       return (<Redirect to="/dashboard" />)
 
     } catch (err) {
@@ -80,7 +82,7 @@ export default class TripCard extends Component {
         <section className='tripCardList'>
           <div className="tripCard">
                 {this.props.trip.image ? <img src={this.props.trip.image} alt=""/> : 
-                <img src='../images/boat1.jpeg' alt="default img"/>
+                <img src={image} alt="default img"/>
                 
               }
             

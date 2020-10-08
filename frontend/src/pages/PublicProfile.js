@@ -27,7 +27,7 @@ export default function Profile(props) {
                             <tbody>
                                 <tr>
                                     <th scope='col'>Profile Picture</th>
-                                    <td><img src={user.picture} /></td>
+                                    <td><img src={user.picture} alt=''/></td>
                                 </tr>
                                 <tr>
                                     <th scope='col'>Birthdate</th>

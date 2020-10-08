@@ -4,7 +4,6 @@ import axios from "axios";
  
 import TripCard from "./../components/TripCard";
  
-import InputGroup from 'react-bootstrap/InputGroup'
 
 export default class BookForm extends Component {
   state = {
@@ -42,7 +41,6 @@ export default class BookForm extends Component {
       return <h1>Loading.....</h1>;
     }
     let filtered = this.state.trips.filter((trip) => {
-      console.log(trip, "trip")
       return (
         trip.locationStart
           .toLowerCase()

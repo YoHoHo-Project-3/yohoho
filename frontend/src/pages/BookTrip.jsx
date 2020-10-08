@@ -12,11 +12,7 @@ class BookTrip extends Component {
     cardData: cardData
   };
 
-  render() {
-    console.log(this.props);
-    if (this.props.user === "") {
-      this.props.history.push("login");
-    }
+  render() { 
     return (
       <div id='book-trip'>
  

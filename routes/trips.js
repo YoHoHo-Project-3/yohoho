@@ -1,5 +1,6 @@
 const express = require("express");
 const Trip = require("../models/Trip");
+const User = require("../models/User");
 
 const router = express.Router();
 
@@ -39,13 +40,14 @@ router.delete("/:id", async (req, res) => {
 router.post("/", async (req, res, next) => {
   try {
     const trip = req.body;
-    trip.user_id = req.user._id;
+    trip.user = req.user._id;
     // ----new user
     const user = req.query.user;
 
     trip.slots_booked = 0
-    user.createdTrips.push(user._id);
-    await Trip.create(trip);
+    // user.createdTrips.push(user._id);
+    let newTrip = await Trip.create(trip);
+    await User.findByIdAndUpdate(req.user._id, {$push: {createdTrips: newTrip._id}})
     res.status(201).json(trip);
   } catch (err) {
     res.status(400).json(err);
