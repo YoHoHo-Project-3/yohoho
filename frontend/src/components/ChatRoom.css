@@ -26,11 +26,8 @@ body {
   background-repeat: no-repeat;
    
 }
-#root span{
+.topicClr{
   color: darkblue;
 }
   
-#root input{
-  height: 3em;
-  width: 75em;
-}
+ 
