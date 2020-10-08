@@ -42,13 +42,13 @@ import { withRouter } from "react-router";
       });
   };
   render() {
-    console.log(this.props);
     return (
       <div className="create">
+        <h1 className='createh1'>Create the Trip</h1>
         <div className="formCreate">
-          <form>
+          <form className='inputs'>
             <div>
-              <label htmlFor="title">Title: </label>
+              <label className='titlelbl' htmlFor="title">Title: </label>
               <input
                 type="text"
                 name="title"
@@ -111,7 +111,7 @@ import { withRouter } from "react-router";
             <div>
               <label htmlFor="price">Price: </label>
               <input
-                type="number"
+                type="text"
                 name="price"
                 id="price"
                 value={this.state.price}
@@ -139,7 +139,7 @@ import { withRouter } from "react-router";
                 onChange={this.handleChange}
               />
             </div>
-            <button onClick={this.handleSubmit}> Submit</button>
+            <button className='createBtn' onClick={this.handleSubmit}> Submit</button>
           </form>
         </div>
       </div>

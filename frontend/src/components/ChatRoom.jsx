@@ -5,13 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { text } from "body-parser";
 import { CTX } from "./Store";
-import "./ChatRoom.css";
-
+ 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "70%",
@@ -92,7 +89,6 @@ export default function ChatRoom(props) {
             {allChats[activeTopic].map((chat, i) => (
               <div className={classes.flex} className={classes.msgs} key={i}>
                 <Typography variant="body1" gutterBottom>
-                  {" "}
                   {chat.from}: {chat.msg}
                 </Typography>
               </div>

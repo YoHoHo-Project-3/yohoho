@@ -12,28 +12,31 @@ class BookTrip extends Component {
     cardData: cardData
   };
 
-  render() {
-    console.log(this.props);
-    if (this.props.user === "") {
-      this.props.history.push("login");
-    }
+  render() { 
     return (
       <div id='book-trip'>
-        <BookForm user={this.props.user} />
-        <center><hr /></center>
+ 
+ 
+   
+      
+<BookForm user={this.props.user} />
+      <center><hr/></center>
 
         <div>
-          <h1 className="howThisWorks">How does it work?</h1>
+        <h1 className="howThisWorks">How does it work?</h1>
         </div>
-
-        <CardDeck>
-          {this.state.cardData.map((e, i) => {
-            return <CardInfo key={i} data={e} trip={e} />;
+      
+     
+       
+       <CardDeck>
+          {this.state.cardData.map((e,i) => {
+            return <CardInfo key={i} data={e} />;
           })}
         </CardDeck>
-
+        
       </div>
-
+      
+ 
     );
   }
 }

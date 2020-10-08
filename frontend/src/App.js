@@ -62,8 +62,10 @@ class App extends Component {
           <Route
             exact
             path="/book-trip"
+            //if there is no user it should be redirected to login
             render={(props) => <BookTrip user={this.state.user} {...props} />}
           />
+          
           <Route
             exact
             path="/offer-trip"

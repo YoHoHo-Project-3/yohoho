@@ -1,12 +1,46 @@
 .profile-page {
-    margin: 30px;
+    margin-left: 25px;
+    margin-top: 20px;
+    padding: 20px;
+    font-family: 'Baloo Tammudu 2', cursive, 'Segoe UI','Roboto';
+    background-color: #B9DAEB;
+    border-radius: 10px;
+    
 }
 
 .profile-page h3 {
     text-align: center;
 }
+
 .table {
     margin: 30px;
     padding: 50px;
-    width: 30vw;
+    width: 20vw;
 }
+
+.table body {
+    width: 5em;
+}
+
+.table th {
+    color: #292838;
+}
+
+/* For mobile phones: */
+
+
+@media only screen and (max-width: 768px) {
+
+    .table {
+        margin:0;
+    }
+
+    .responsive-row tr {
+        max-width: 260px;
+        display:flex;
+        flex-direction: column;
+        padding:0;
+
+    }
+ 
+ }

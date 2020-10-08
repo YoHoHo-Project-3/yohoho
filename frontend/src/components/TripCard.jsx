@@ -1,17 +1,20 @@
+ 
 import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom';
-import { Card } from "react-bootstrap";
+import image from '../images/boat1.jpeg';
+ 
 import "./TripCard.css";
+
 import axios from "axios";
 
 
 export default class TripCard extends Component {
-  //  ----------------New -------------------
+ 
   state = {
     clicked: false,
     booked: this.props.trip.passengers.includes(this.props.user._id) || "",
-    owner: this.props.trip.user == this.props.user._id,
-    // created: this.props.user.createdTrips.includes(this.props.user._id)
+    owner: this.props.trip.user === this.props.user._id,
+     
   }
 
   componentDidUpdate(prevProps) {
@@ -20,11 +23,7 @@ export default class TripCard extends Component {
         booked: this.props.trip.passengers.includes(this.props.user._id)
       })
     }
-    // if (prevProps.user !== this.props.user) {
-    //   this.setState({
-    //     createdTrips: this.props.user.createdTrips.includes(this.props.trip._id)
-    //   })
-    // }
+  
   }
 
   handleClick = (id) => {
@@ -58,6 +57,7 @@ export default class TripCard extends Component {
       this.setState({
         booked: false,
       })
+  
       return (<Redirect to="/dashboard" />)
 
     } catch (err) {
@@ -76,34 +76,48 @@ export default class TripCard extends Component {
       console.log('Error:' + err);
     }
   };
-  // -----------------Hasta aquí ---------------------
-  render() {
-    console.log(this.state.owner, "owner")
-    return (
-      <div>
-        <Card style={{ width: "17rem", backgroundColor: "#ffffff" }}>
-          <Card.Img variant="top" src={this.props.trip.image} />
-          <Card.Body>
-            <Card.Title>Title:  {this.props.trip.title}</Card.Title>
-            <Card.Text>Description: {this.props.trip.description}</Card.Text>
-            <Card.Text>Start: {this.props.trip.locationStart}</Card.Text>
-            <Card.Text>End: {this.props.trip.locationEnd}</Card.Text>
-            <Card.Text>Date: {this.props.trip.date}</Card.Text>
-            <Card.Text>Name of boat: {this.props.trip.boatName}</Card.Text>
-            <Card.Text>Price: {this.props.trip.price}</Card.Text>
-            <Card.Text>Available slots: {this.props.trip.slotsAvailable}</Card.Text>
-            <Card.Text><Link to={'/profile/' + this.props.trip.user}>Boat Owner Profile</Link></Card.Text>
-          </Card.Body>
-          {/* ..........................Botón debajo */}
-          {this.state.owner ?
-            <button onClick={() => this.handleDelete(this.props.trip._id)}>Delete Trip</button> :
-            this.state.booked ?
-              <button onClick={() => this.handleUnbook(this.props.trip._id)}>Unbook trip</button> :
-              <button onClick={() => this.handleClick(this.props.trip._id)}>Book trip</button>}
-        </Card>
-
-      </div>
-    );
-  }
-};
+ render(){
+      return (
+        <section className='tripCardList'>
+          <div className="tripCard">
+                {this.props.trip.image ? <img src={this.props.trip.image} alt=""/> : 
+                <img src={image} alt="default img"/>
+                
+              }
+            
+    
+            <div className='cardInfo'>
+              <div className='tripOwnerLink'>
+                <p>{this.props.trip.boatName}</p>
+                <Link id='linkToTripOwner' to={'/profile/'+this.props.trip.user}>Boat Owner Profile</Link>
+              </div>
+                <h5>{this.props.trip.title}</h5>
+                <p>{this.props.trip.description}</p>
+    
+              <div className='tripDates'>
+                <p>From {this.props.trip.locationStart} to {this.props.trip.locationEnd}</p>
+                <p>Date: {this.props.trip.date}</p>
+              </div>
+    
+              <div className="tripFigures">
+                <p>Spots: {this.props.trip.slotsAvailable}</p>
+                <p>{this.props.trip.price}€ / Ride</p>
+              </div>
+              
+              <div className='bookNowButton'>
+              
+                {this.state.owner ? <button className='btn btn-danger' onClick={() => this.handleDelete(this.props.trip._id)}>Delete Trip</button> :
+                this.state.booked ?
+                  <button className='btn btn-danger' onClick={() => this.handleUnbook(this.props.trip._id)}>Unbook trip</button> :
+                  <button className='btn btn-danger'  onClick={() => this.handleClick(this.props.trip._id)}>Book trip</button>}
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        )
+      };
+      }
+    
+ 
 

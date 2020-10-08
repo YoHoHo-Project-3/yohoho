@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./BookForm.css";
 import axios from "axios";
-import TripCard from "./TripCard";
-import InputGroup from 'react-bootstrap/InputGroup'
+ 
+import TripCard from "./../components/TripCard";
+ 
 
 export default class BookForm extends Component {
   state = {
@@ -36,12 +37,10 @@ export default class BookForm extends Component {
   };
 
   render() {
-    console.log("trips should be here ", this.state);
     if (this.state.loading) {
       return <h1>Loading.....</h1>;
     }
     let filtered = this.state.trips.filter((trip) => {
-      console.log(trip, "trip")
       return (
         trip.locationStart
           .toLowerCase()
@@ -80,12 +79,14 @@ export default class BookForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="tripWrapper d-flex">
+ 
+        <div>
           {filtered.map((trip) => {
             return <TripCard key={trip._id} trip={trip} user={this.props.user} />;
           })}
+ 
         </div>
-        {filtered.length === 0 && <h1>your result not found</h1>}
+        {filtered.length === 0 && <h1>Sorry, we couldn't find any trips</h1>}
       </div>
     );
   }
