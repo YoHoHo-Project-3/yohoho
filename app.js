@@ -10,7 +10,7 @@ const app = express();
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const endpoints = require("./routes");
+// const endpoints = require("./routes");
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const Trip = require('./models/Trip');
@@ -81,8 +81,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+// const index = require('./routes/index');
+// app.use('/', index);
 
 const bookTrip = require('./routes/bookTrip');
 app.use('/api/bookTrip', bookTrip);
