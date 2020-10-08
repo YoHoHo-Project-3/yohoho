@@ -8,31 +8,36 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { CTX } from "./Store";
- 
+import "./ChatRoom.css";
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "70%",
-    marginLeft: "260px",
-    marginTop: "70px",
+    width: "45%",
+    marginLeft: "450px",
     padding: theme.spacing(3, 2),
+    backgroundColor: "transparent",
+    border: "2px solid darkblue",
+    borderRadius: "45px",
+     
   },
 
   flex: {
     display: "flex",
     alignItems: "center",
   },
+
   topicsWindow: {
-    width: "15%",
+    width: "20%",
     height: "300px",
-    borderRight: "2px solid grey",
+    borderRight: "2px solid darkblue",
   },
   chatWindow: {
-    width: "60%",
+    width: "70%",
     height: "400px",
-    padding: "20px",
+    padding: "50px",
   },
   chatBox: {
-    width: "85%",
+    width: "60%",
 
     marginLeft: "15em",
     marginRight: "4em",
@@ -43,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "5em",
   },
   msgs: {
-    color: "#3f51b5",
+    color: "darkblue",
   },
 }));
 export default function ChatRoom(props) {
@@ -57,16 +62,35 @@ export default function ChatRoom(props) {
   const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
   const [textValue, changeTextValue] = React.useState("");
   return (
-    <div>
-      <Paper className={classes.root} >
-        <Typography className='chat-blue chat-center'  variant="h4" component="h1">
-          Chat app
+    <div className="chatbody">
+       <div className='chatbx'> 
+      <Paper className={classes.root}>
+       
+
+        <Typography
+          className="chat-blue chat-center"
+          className="chath1"
+          variant="h4"
+          component="h1"
+        >
+          CHAT
         </Typography>
-        <Typography className='chat-blue' variant="h4" component="h3">
+        <Typography
+          className="chat-blue"
+          className="chathtopic"
+          variant="h4"
+          component="h4"
+        >
           Topics:
         </Typography>
 
-        <Typography className='chat-blue chat-center' component="h5">Choosen topic: {activeTopic}</Typography>
+        <Typography
+          className="chat-blue chat-center"
+          className="chath"
+          component="h5"
+        >
+          Choosen topic: {activeTopic}
+        </Typography>
 
         <div className={classes.flex}>
           <div className={classes.topicsWindow}>
@@ -108,7 +132,7 @@ export default function ChatRoom(props) {
             className={classes.button}
             onClick={() => {
               sendChatAction({
-                from: props.user.username,
+                from: "User",
                 msg: textValue,
                 topic: activeTopic,
               });
@@ -118,7 +142,9 @@ export default function ChatRoom(props) {
             Send
           </Button>
         </div>
+        
       </Paper>
+      </div>
     </div>
   );
 }
