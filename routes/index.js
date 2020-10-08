@@ -1,8 +1,13 @@
 const express = require("express");
 const { isValidObjectId } = require("mongoose");
-const http = require("http").createServer(express);
-const io = require("socket.io")(http);
+
 const router = express.Router();
+const chatApp = express()
+const http = require("http").createServer(chatApp);
+const io = require("socket.io")(http);
+
+
+
 
 io.on("connection", function (socket) {
   socket.on("chat message", function (msg) {
