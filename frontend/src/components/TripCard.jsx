@@ -5,7 +5,6 @@ import image from '../images/boat1.jpeg';
  
 import "./TripCard.css";
 
- 
 import axios from "axios";
 
 
