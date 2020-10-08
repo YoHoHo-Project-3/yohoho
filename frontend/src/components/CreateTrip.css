@@ -15,7 +15,7 @@
   }
   .createh1 {
     display: flex;
-    justify-content: left;
+    justify-content: left; 
     margin-left: 5em;
   }
   .createBtn {
@@ -57,10 +57,29 @@
  
 
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-.dashboard {
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  .create input {
+    width: 300px;
+    height: 32px;
+    margin-left: 4em;
+    margin-right: 4em;
+    background-color: transparent;
+    color: white;
+  }
+  .inputs {
+    border: 5px solid grey;
+    border-radius: 80px;
+    width: 400px;
+  } 
+  .createBtn {
+    color: rgb(164, 168, 154);
+    background-color: transparent;
+    margin-left: 8em;
+    height: 60px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 1.5em;
+    margin-top: 2em;
   }
 }
