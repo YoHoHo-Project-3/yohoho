@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
-const app = express();
+const socketIO = require("socket.io");
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
@@ -14,11 +14,11 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const Trip = require('./models/Trip');
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
 
 require('./configs/passport.js');
 
+const app = express();
+const http = require("http").createServer(app);
 
 mongoose
   .connect(process.env.MONGO_CONNECT || 'mongodb://localhost/yohoho', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -104,14 +104,19 @@ app.use((req, res) => {
   res.sendFile(__dirname + '/frontend/build/index.html')
 });
 
+
+
+const server = http.listen(3001,function(){
+  console.log("listen to 3001")
+})
+
+// Socket.io setup
+const io = socketIO(server);
+
 io.on("connection", function (socket) {
   socket.on("chat message", function (msg) {
    io.emit('chat message', msg)
   });
 });
-
-http.listen(3001,function(){
-  console.log("listen to 3001")
-})
  
 module.exports = app;
