@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const logger = require('morgan');
 const path = require("path");
@@ -6,7 +5,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
-const socketIO = require("socket.io");
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
@@ -18,7 +16,6 @@ const Trip = require('./models/Trip');
 require('./configs/passport.js');
 
 const app = express();
-const http = require("http").createServer(app);
 
 mongoose
   .connect(process.env.MONGO_CONNECT || 'mongodb://localhost/yohoho', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -75,12 +72,8 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
-
 
 // const index = require('./routes/index');
 // app.use('/', index);
@@ -104,19 +97,4 @@ app.use((req, res) => {
   res.sendFile(__dirname + '/frontend/build/index.html')
 });
 
-
-
-const server = http.listen(3001,function(){
-  console.log("listen to 3001")
-})
-
-// Socket.io setup
-const io = socketIO(server);
-
-io.on("connection", function (socket) {
-  socket.on("chat message", function (msg) {
-   io.emit('chat message', msg)
-  });
-});
- 
 module.exports = app;

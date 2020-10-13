@@ -26,15 +26,16 @@ function reducer(state, action) {
       return state;
   }
 }
+let socket;
+
 function sendChatAction(value) {
   socket.emit("chat message", value);
 }
-let socket;
 
 export default function Store(props) {
   const [allChats, dispatch] = React.useReducer(reducer, initState);
   if (!socket) {
-    socket = io(process.env.REACT_APP_SERVER_URL  || 'http://localhost:3001');
+    socket = io();
     socket.on("chat message", function (msg) {
       dispatch({ type: "RECEIVE_MESSAGE", payload: msg });
     });
