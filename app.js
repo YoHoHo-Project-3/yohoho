@@ -14,7 +14,8 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const Trip = require('./models/Trip');
-
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 
 require('./configs/passport.js');
 
@@ -103,4 +104,14 @@ app.use((req, res) => {
   res.sendFile(__dirname + '/frontend/build/index.html')
 });
 
+io.on("connection", function (socket) {
+  socket.on("chat message", function (msg) {
+   io.emit('chat message', msg)
+  });
+});
+
+http.listen(3001,function(){
+  console.log("listen to 3001")
+})
+ 
 module.exports = app;
