@@ -129,7 +129,7 @@ export default function ChatRoom(props) {
               className={classes.button}
               onClick={() => {
                 sendChatAction({
-                  from: "User",
+                  from: props.user.name,
                   msg: textValue,
                   topic: activeTopic,
                 });
