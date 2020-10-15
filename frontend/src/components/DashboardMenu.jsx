@@ -15,9 +15,9 @@ export default function DashboardMenu(props) {
         </Card>
       </div>
     <div className='link-block-menue'>
-      <a rel="stylesheet" href="#" onClick={props.showOwnTrips}>Owned Trips</a>
-      <a rel="stylesheet" href="#" onClick={props.showBookedTrips}>Booked Trips</a>
-      <a rel="stylesheet" href="/offer-trip">Create Trip</a>
+      <a rel="stylesheet" href="#" onClick={props.showOwnTrips}>Own Rides</a>
+      <a rel="stylesheet" href="#" onClick={props.showBookedTrips}>Booked Rides</a>
+      <a rel="stylesheet" href="/offer-trip">Create a Ride</a>
       <a rel="stylesheet" href="#" onClick={props.showProfile}>Profile</a>
       <a rel="stylesheet" href="/chat">Chat</a>
     </div>  

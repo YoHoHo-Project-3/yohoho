@@ -55,7 +55,7 @@ export default class BookForm extends Component {
     });
     return (
       <div className="book">
-        <h1> All Trips</h1>
+        <h1> All Rides</h1>
         <div className="inputGroup">
           <input
             type="text"

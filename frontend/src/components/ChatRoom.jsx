@@ -12,14 +12,19 @@ import "./ChatRoom.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(40%, 10%)",
     width: "55%",
     height: "850px",
-    marginLeft: "330px",
+    //marginLeft: "330px",
     padding: theme.spacing(3, 2),
     backgroundColor: "transparent",
-    border: "1.5px solid darkblue",
-    boxShadow: "inset 8px 19px 20px 35px rgba(0,0,0,0.32)",
-    borderRadius: "35px",
+    border: "1.5px solid #292838",
+   // boxShadow: "inset 8px 19px 20px 35px rgba(0,0,0,0.32)",
+    borderRadius: "10px",
+    position: "relativ",
   },
 
   flex: {
@@ -36,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     height: "600px",
     padding: "50px",
-    border: "1px solid darkblue",
-    borderRadius: "40px",
+    border: "1px solid #292838",
+    borderRadius: "10px",
   },
   chatBox: {
     width: "990px",
@@ -51,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1em",
     width: "15%",
     height: "53px",
-    backgroundColor: " #E2000C",
+    backgroundColor: "#E2000C",
     marginRight: "3em",
   },
   msgs: {

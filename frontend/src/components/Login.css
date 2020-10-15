@@ -1,3 +1,4 @@
+
 .login-background {
     background-image: url("https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60");
     height: 85vh;
@@ -6,11 +7,28 @@
     color: rgb(164, 168, 154);
 }
 
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ;
+    font-size: 20px;
+
+}
+
+.form-group{
+    align-items: center;
+}
+
 .login-form {
     text-align: center;
     justify-content: center;
     color: white;
     text-decoration: none;
+    font-family: 'Baloo Tammudu 2', cursive,'Segoe UI', 'Roboto' ;
+    font-size: 20px;
 }
 
 .h2-login {
@@ -20,8 +38,12 @@
     text-shadow: 2px 2px #003B3E;
 }
 
+.button-location {
+    text-align: center;
+    justify-content: center;
+}
+
 .loginBtn, .loginBtn:hover, .loginBtn:active, .loginBtn:visited {
-    background-color: white;
     text-align: center;
     justify-content: center;
 }

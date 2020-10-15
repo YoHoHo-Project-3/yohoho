@@ -78,16 +78,16 @@ export default class Login extends Component {
                                 <Alert variant='danger'>{this.state.message}</Alert>
                             )}
                             <div className="button-location">
-                                <Button className="loginBtn" type='submit'>Login</Button>
+                                <Button variant="danger" className="loginBtn" type='submit'>Login</Button>
                             </div>
                             <br></br>
-                            <div class="link-location">
-                                <Link class="link-login" to='/signup'>If you dont have account click here </Link>
+                            <div className="link-location">
+                                <Link className="link-login" to='/signup'>If you dont have account click here </Link>
                             </div>
                         </Form>
                     </div>
                 </div>
-            </div >
+            </div>
         )
     }
 }

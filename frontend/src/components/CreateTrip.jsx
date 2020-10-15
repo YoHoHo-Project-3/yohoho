@@ -44,6 +44,7 @@ import { withRouter } from "react-router";
   render() {
     return (
       <div className="create">
+      <div className="create-content">
         <h1 className='createh1'>Create the Trip</h1>
         <div className="formCreate">
           <form className='inputs'>
@@ -139,8 +140,9 @@ import { withRouter } from "react-router";
                 onChange={this.handleChange}
               />
             </div>
-            <button className='createBtn' onClick={this.handleSubmit}> Submit</button>
+            <button className='createBtn' onClick={this.handleSubmit}>Create</button>
           </form>
+        </div>
         </div>
       </div>
     );

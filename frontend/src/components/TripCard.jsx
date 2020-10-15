@@ -106,10 +106,10 @@ export default class TripCard extends Component {
               
               <div className='bookNowButton'>
               
-                {this.state.owner ? <button className='btn btn-danger' onClick={() => this.handleDelete(this.props.trip._id)}>Delete Trip</button> :
+                {this.state.owner ? <button className='btn btn-danger' onClick={() => this.handleDelete(this.props.trip._id)}>Delete Ride</button> :
                 this.state.booked ?
-                  <button className='btn btn-danger' onClick={() => this.handleUnbook(this.props.trip._id)}>Unbook trip</button> :
-                  <button className='btn btn-danger'  onClick={() => this.handleClick(this.props.trip._id)}>Book trip</button>}
+                  <button className='btn btn-danger' onClick={() => this.handleUnbook(this.props.trip._id)}>Unbook Ride</button> :
+                  <button className='btn btn-danger'  onClick={() => this.handleClick(this.props.trip._id)}>Book Ride</button>}
               </div>
             </div>
           </div>

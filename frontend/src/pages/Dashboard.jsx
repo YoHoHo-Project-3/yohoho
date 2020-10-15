@@ -69,7 +69,8 @@ export default class Dashboard extends Component {
                     showBookedTrips={() => { this.showBookedTrips() }}
                     showProfile={() => { this.showProfile() }} />
                 
-                <div>
+                <div className="welcome-dashboard">
+                <h2>Welcome to your Dashboard, {this.state.user.name}!</h2>
 
                 {this.state.showMode === 'ownTrips' ? this.state.ownTrips.map((trip, index) => {
                     return (<TripCard trip={trip} key={index} user={this.props.user} />)

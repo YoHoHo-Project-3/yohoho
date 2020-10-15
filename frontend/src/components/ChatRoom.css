@@ -1,33 +1,29 @@
-body {
-  font-family: "Baloo Tammudu 2", cursive, "Segoe UI", "Roboto";
-}
 .chath {
   display: flex;
   justify-content: center;
-  color: darkblue;
+  color: #292838;
   font-style: italic;
 }
 .chath1 {
   display: flex;
   justify-content: center;
-  color: darkblue;
+  color: #292838;
 }
 .chathtopic{
   display: flex;
   justify-content: left;
-  color: darkblue;
+  color: #292838;
   
 }
 .chatbody {
   background-image: url("../images/sea.jpg");
   height: 950px;
- margin-top: -2.1em;
   background-size: cover;
   background-repeat: no-repeat;
    
 }
 .topicClr{
-  color: darkblue;
+  color: #292838;
 }
   
  

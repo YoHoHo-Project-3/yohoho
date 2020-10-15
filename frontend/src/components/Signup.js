@@ -82,12 +82,12 @@ export default class Signup extends Component {
                                     onChange={this.handleChange}
                                     id='password'
                                 />
-                            </Form.Group >
+                            </Form.Group>
                             {this.state.message && (
                                 <Alert variant='danger'>{this.state.message}</Alert>
                             )}
                             <div className="button-location">
-                                <Button className="signupBtn" type='submit'>Signup</Button>
+                                <Button variant="danger" className="signupBtn" type='submit'>Signup</Button>
                             </div>
                         </Form>
                     </div>
